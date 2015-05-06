@@ -1,0 +1,13 @@
+.register_form {
+	position: absolute;
+	top: 30px;
+	right:30px;
+}
+
+#register_form {
+	display: block;
+	width: 50%;
+	margin-top: 3%;
+	margin-left: 25%;
+	margin-right: 25%;
+}
