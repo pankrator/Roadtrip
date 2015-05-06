@@ -4,7 +4,7 @@
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>slbedu</groupId>
-    <artifactId>library</artifactId>
+    <artifactId>roadtrip</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <properties>
@@ -14,7 +14,7 @@
     </properties>
 
     <build>
-        <finalName>library</finalName>
+        <finalName>roadtrip</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -33,6 +33,19 @@
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.apache.openjpa</groupId>
+            <artifactId>openjpa</artifactId>
+            <version>2.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+		</dependency>
     </dependencies>
 
 </project>
