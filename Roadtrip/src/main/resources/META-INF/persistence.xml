@@ -2,25 +2,14 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
-    <!-- <persistence-unit name="roadtrip">
-	    <properties>
-			<property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/roadtrip" />
-	        <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
-           	<property name="openjpa.ConnectionUserName" value="root"/>
-  			<property name="openjpa.ConnectionPassword" value=""/>
-			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
-	    </properties>
-	</persistence-unit> -->
 	
-	<persistence-unit name="library-persistence-unit">
-	<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-    <!-- <non-jta-data-source>MySQLDataSource</non-jta-data-source> -->
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties>
-        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(foreignKeys=true)"/>
-        <property name="openjpa.ConnectionURL" value="jdbc:mysql://localhost:3306/roadtrip" />
-        <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
-       	<property name="openjpa.ConnectionUserName" value="root"/>
-    </properties>
+	<persistence-unit name="roadtrip" transaction-type="JTA">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<jta-data-source>MyAppDS</jta-data-source>
+    	<exclude-unlisted-classes>false</exclude-unlisted-classes>
+	    <properties>
+	        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(foreignKeys=true)"/>
+	        <property name="openjpa.jdbc.DBDictionary" value="mysql" />
+	    </properties>
 </persistence-unit>
 </persistence>

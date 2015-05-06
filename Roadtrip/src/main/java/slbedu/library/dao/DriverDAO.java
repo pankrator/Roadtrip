@@ -13,7 +13,7 @@ import slbedu.library.model.Driver;
 @Singleton
 public class DriverDAO {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="roadtrip")
     private EntityManager em;
 	
 	public List<Driver> getAllDrivers() {
