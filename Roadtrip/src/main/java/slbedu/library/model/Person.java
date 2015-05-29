@@ -12,17 +12,6 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
 public abstract class Person {
-
-	public Person() {}
-	
-	
-	public Person(String name, int rating, String telephone, int birthYear) {
-		this.name = name;
-		this.rating = rating;
-		this.telephone = telephone;
-		this.birthYear = birthYear;
-	}
-
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -31,7 +20,18 @@ public abstract class Person {
 	private int rating;
 	private String telephone;
 	private int birthYear;
-//	private Profile profile
+	private Profile profile;
+	
+	public Person() {}
+	
+	public Person(String name, int rating, String telephone, int birthYear) {
+		this.name = name;
+		this.rating = rating;
+		this.telephone = telephone;
+		this.birthYear = birthYear;
+	}
+
+
 	
 	public Long getId() {
 		return id;
