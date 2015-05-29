@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
 import slbedu.library.dao.DriverDAO;
+import slbedu.library.model.Driver;
 
 @Stateless
 @Path("login")
@@ -28,7 +29,8 @@ public class LoginController {
 	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		driverDAO.add();
-		List<Object> drivers = driverDAO.findAll();
+		List<Driver> drivers = driverDAO.findAll();
+		System.out.println(drivers.size());
 		request.setAttribute("drivers", drivers);
 		rd = request.getRequestDispatcher("../login.jsp");
 		

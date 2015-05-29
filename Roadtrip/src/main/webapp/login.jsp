@@ -5,7 +5,7 @@
 <title>Login</title>
 </head>
 <body>
-	Login login
+	Login
 	${drivers}
 </body>
 </html>

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -17,10 +18,12 @@ public abstract class Person {
     private Long id;
 	
 	private String name;
+	
 	private int rating;
+	
 	private String telephone;
+	
 	private int birthYear;
-	private Profile profile;
 	
 	public Person() {}
 	
@@ -30,8 +33,6 @@ public abstract class Person {
 		this.telephone = telephone;
 		this.birthYear = birthYear;
 	}
-
-
 	
 	public Long getId() {
 		return id;

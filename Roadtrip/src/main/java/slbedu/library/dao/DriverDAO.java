@@ -22,13 +22,13 @@ public class DriverDAO {
 		return query.getResultList();
 	} 
 	
-	public List<Object> findAll() {
+	public List<Driver> findAll() {
 		Query q = em.createQuery("SELECT d.name FROM Driver d");
 		
-		return q.getResultList();
+		return (List<Driver>)q.getResultList();
 	}
 	
 	public void add() {
-		em.persist(new Driver());
+		em.persist(new Driver("Ïvan Georgiev", 10, "01234566", 1990, 0, 1990, false, "Country"));
 	}
 }

@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@DiscriminatorValue(value = "person")
+@DiscriminatorValue(value = "driver")
 @XmlRootElement
 //@NamedQueries({
 //	@NamedQuery(name = "findAll", query = "SELECT d FROM Driver d")})
