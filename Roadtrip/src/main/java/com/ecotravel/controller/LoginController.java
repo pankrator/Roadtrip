@@ -29,13 +29,14 @@ public class LoginController {
 	@Produces("application/json")
 	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("../login.jsp");
+		rd = request.getRequestDispatcher("/login.jsp");
 		
 		rd.forward(request, response);
 	}
 	
 	@POST
-	@Consumes("application/json")
+	@Consumes("application/x-www-form-urlencoded")
+	@Produces("application/json")
 	public void login(@Context HttpServletRequest request, @Context HttpServletResponse response,
 					@FormParam(value="username") String username,
 					@FormParam(value="password") String password) throws ServletException, IOException {
@@ -44,12 +45,11 @@ public class LoginController {
 		boolean isAuthenticated = authenticationService.authenticate(username, password);
 		
 		if (isAuthenticated) {
-			rd = request.getRequestDispatcher("../home.jsp");			
+			rd = request.getRequestDispatcher("home.jsp");
 		} else {
 			request.setAttribute("error", "WRONG_CREDENTIALS");
-			rd = request.getRequestDispatcher("../login.jsp");
+			rd = request.getRequestDispatcher("login.jsp");
 		}
-		
 		
 		rd.forward(request, response);
 		

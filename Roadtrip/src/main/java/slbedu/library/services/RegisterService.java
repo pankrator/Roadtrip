@@ -8,6 +8,8 @@ import slbedu.library.model.Profile;
 public class RegisterService {
 	@Inject
 	private ProfileDAO dao;
+	
+	
 	public Profile register(Profile p){
 		return dao.save(p);	
 	}

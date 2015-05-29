@@ -25,16 +25,17 @@
 	    }
 	    
 		$.ajax({
-		    url: 'rest/register',
+		    url: 'register',
 		    type: "POST",
 		    contentType: "application/json;charset=UTF-8",
 		    data: JSON.stringify(data)
 		})
 		.success(function(data) {
-		    $("#register_form").attr("action", "index.html");
+	//	    $("#register_form").attr("action", "index.html");
+			alert("uspeh");
 		})
 		.fail(function(data) {
-		    $("#register_form").attr("action", "register.html");
+//		    $("#register_form").attr("action", "register.html");
 
 		})
 		.always(function() {

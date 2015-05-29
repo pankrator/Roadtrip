@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import slbedu.library.context.UserContext;
 import slbedu.library.dao.ProfileDAO;
 import slbedu.library.model.Profile;
-import slbedu.library.utils.AuthenticationUtils;
 
 @Stateless
 public class AuthenticationService {
@@ -20,7 +19,11 @@ public class AuthenticationService {
 	public boolean authenticate(String username, String password) {
 		Profile profile = profileDAO.findByUsername(username);
 		
-		if (profile.getPassword().equals(AuthenticationUtils.getHashedPassword(password))) {
+		if (profile == null) {
+			return false;
+		}
+		
+		if (profile.getPassword().equals(password)) {
 			context.setProfile(profile);
 			return true;
 		}

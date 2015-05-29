@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import slbedu.library.model.Profile;
 
 @Singleton
@@ -19,7 +21,11 @@ public class ProfileDAO extends BaseDAO<Profile>{
 		TypedQuery<Profile> query = em.createQuery("SELECT p FROM Profile p WHERE p.username = :username", Profile.class);
 		query.setParameter("username", username);
 		
-		return query.getSingleResult();
+		try {
+			return query.getSingleResult();			
+		} catch (NoResultException noresult) {
+			return null;
+		}
 	}
 	
 	public List<Profile> findAll() {

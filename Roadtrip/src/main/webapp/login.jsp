@@ -7,10 +7,14 @@
 <body>
 	Login
 	
-	Username: <input type="text" name="username" />
-	Password: <input type="password" name="password" />
+	<form method="post" action="/Roadtrip/login">
+		Username: <input type="text" name="username" />
+		Password: <input type="password" name="password" />
 		
-	<% if (request.getAttribute("error").equals("WRONG_CREDENTIALS")) { %>
+		<input type="submit" value="Sign in"/> 	
+	</form>
+	
+	<% if (request.getAttribute("error") != null) { %>
 		<span>
 			Wrong username or credentials
 		</span>
