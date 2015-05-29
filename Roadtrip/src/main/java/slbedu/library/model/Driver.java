@@ -9,8 +9,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @DiscriminatorValue(value = "driver")
 @XmlRootElement
-//@NamedQueries({
-//	@NamedQuery(name = "findAll", query = "SELECT d FROM Driver d")})
 public class Driver extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 		
