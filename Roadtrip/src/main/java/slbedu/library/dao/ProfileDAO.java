@@ -1,15 +1,17 @@
 package slbedu.library.dao;
 
+import java.util.List;
+
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-
 import slbedu.library.model.Profile;
 
 @Singleton
-public class ProfileDAO {
-
+public class ProfileDAO extends BaseDAO<Profile>{
+	private String selectedColumns = "id, email, password, username";
+	private String tableName = "Profile";
 	@PersistenceContext(unitName="roadtrip")
     private EntityManager em;
 	
@@ -18,5 +20,13 @@ public class ProfileDAO {
 		query.setParameter("username", username);
 		
 		return query.getSingleResult();
+	}
+	
+	public List<Profile> findAll() {
+		return super.findAll(selectedColumns, tableName, Profile.class);
+	}
+
+	public Profile find(int id) {
+		return super.find(id, Profile.class);
 	}
 }
