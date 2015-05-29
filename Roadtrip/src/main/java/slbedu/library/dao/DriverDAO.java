@@ -29,6 +29,6 @@ public class DriverDAO {
 	}
 	
 	public void add() {
-		em.persist(new Driver("Nikolay"));
+		em.persist(new Driver());
 	}
 }

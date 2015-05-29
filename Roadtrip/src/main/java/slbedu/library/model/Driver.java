@@ -2,47 +2,71 @@ package slbedu.library.model;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@DiscriminatorValue(value = "person")
 @XmlRootElement
 //@NamedQueries({
 //	@NamedQuery(name = "findAll", query = "SELECT d FROM Driver d")})
-public class Driver implements Serializable {
+public class Driver extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-	
-	private String name;
+		
+	private int numberOfTravels;
+	private int licenseYear;
+	private boolean isSmoking;
+	private String musicInTheCar;
 	
 	public Driver() {
 	}
 	
-	public Driver(String name) {
-		this.name = name;
+	public Driver(String name, int rating, String telephone, int birthYear,
+			int numberOfTravels, int licenseYear, boolean isSmoking,
+			String musicInTheCar) {
+		super(name, rating, telephone, birthYear);
+		
+		this.numberOfTravels = numberOfTravels;
+		this.licenseYear = licenseYear;
+		this.isSmoking = isSmoking;
+		this.musicInTheCar = musicInTheCar;
 	}
 
-	public Long getId() {
-		return id;
+	public int getNumberOfTravels() {
+		return numberOfTravels;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setNumberOfTravels(int numberOfTravels) {
+		this.numberOfTravels = numberOfTravels;
 	}
 
-	public String getName() {
-		return name;
+	public int getLicenseYear() {
+		return licenseYear;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setLicenseYear(int licenseYear) {
+		this.licenseYear = licenseYear;
 	}
-	
+
+	public boolean isSmoking() {
+		return isSmoking;
+	}
+
+	public void setSmoking(boolean isSmoking) {
+		this.isSmoking = isSmoking;
+	}
+
+	public String getMusicInTheCar() {
+		return musicInTheCar;
+	}
+
+	public void setMusicInTheCar(String musicInTheCar) {
+		this.musicInTheCar = musicInTheCar;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }
