@@ -21,8 +21,9 @@ import slbedu.library.services.RegisterService;
 import slbedu.library.utils.AuthenticationUtils;
 
 @Stateless
-@Path("/register")
+@Path("register")
 public class RegisterController {
+	
 	@Inject 
 	private RegisterService regService;
 	
@@ -50,14 +51,14 @@ public class RegisterController {
 //		password = AuthenticationUtils.getHashedPassword(password);
 		
 		Profile profile = new Profile();
-		profile.setEmail(email);
+		profile.setEmail(email);	
 		profile.setPassword(password);
 		profile.setUsername(username);
 		
 		regService.register(profile);
 		
 		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/home.jsp");
+		rd = request.getRequestDispatcher("/login.jsp");
 		
 		rd.forward(request, response);
 		

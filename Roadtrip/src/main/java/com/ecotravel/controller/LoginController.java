@@ -42,13 +42,13 @@ public class LoginController {
 					@FormParam(value="password") String password) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
-		boolean isAuthenticated = authenticationService.authenticate(username, password);
+		boolean isAuthenticated = authenticationService.authenticate(username, password, request);
 		
 		if (isAuthenticated) {
-			rd = request.getRequestDispatcher("home.jsp");
+			rd = request.getRequestDispatcher("/index.jsp");
 		} else {
 			request.setAttribute("error", "WRONG_CREDENTIALS");
-			rd = request.getRequestDispatcher("login.jsp");
+			rd = request.getRequestDispatcher("/login.jsp");
 		}
 		
 		rd.forward(request, response);

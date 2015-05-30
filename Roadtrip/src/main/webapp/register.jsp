@@ -32,14 +32,13 @@
 		})
 		.success(function(data) {
 	//	    $("#register_form").attr("action", "index.html");
-			alert("uspeh");
 		})
 		.fail(function(data) {
 //		    $("#register_form").attr("action", "register.html");
 
 		})
 		.always(function() {
-                    $("#register_form").submit();
+			$("#register_form").submit();
         });
     }
 

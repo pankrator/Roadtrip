@@ -2,6 +2,7 @@ package slbedu.library.services;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import slbedu.library.context.UserContext;
 import slbedu.library.dao.ProfileDAO;
@@ -16,7 +17,7 @@ public class AuthenticationService {
 	@Inject
 	private ProfileDAO profileDAO;
 	
-	public boolean authenticate(String username, String password) {
+	public boolean authenticate(String username, String password, HttpServletRequest request) {
 		Profile profile = profileDAO.findByUsername(username);
 		
 		if (profile == null) {
