@@ -1,91 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Register</title>
-<link rel="stylesheet" type="text/css" href="styles/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="styles/library.css" />
-<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-<script type="text/javascript">
-	function register() {
-	    var formUrl = $("#register_form").attr("action");
-	    var username = $("#userName")[0].value;
-	    var password = $("#pwd")[0].value;
-	    var email = $("#email")[0].value;
-	    
-	    if(!isPasswordValid(password)) {
-	        return ;
-	    }
-	    
-	    var data = { user : {
-		            userName : username,
-		            password : password,
-		            email : email
-    			}
-	    }
-	    
-		$.ajax({
-		    url: 'register',
-		    type: "POST",
-		    contentType: "application/json;charset=UTF-8",
-		    data: JSON.stringify(data)
-		})
-		.success(function(data) {
-	//	    $("#register_form").attr("action", "index.html");
-		})
-		.fail(function(data) {
-//		    $("#register_form").attr("action", "register.html");
-
-		})
-		.always(function() {
-			$("#register_form").submit();
-        });
-    }
-
-    function isPasswordValid(password) {
-        var confirmPassword = $("#conf_pwd")[0].value;
-
-        if (password == "" || confirmPassword == "") {
-            alert("Please fill both fields for password and try again.");
-            return false;
-        }
-
-        if (password != confirmPassword) {
-            alert("Two passwords do not match. Please correct the values and try again.");
-            return false;
-        }
-        return true;
-    }
-</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Road trip</title>
 </head>
 <body>
 
-	<h1 align="center">
-		<b>REGISTRATION FORM</b>
-	</h1>
-
-	<form id="register_form" role="form" method="post">
-		<div class="form-group">
-			<label for="userName">Username:</label> <input type="text"
-				class="form-control" name="username" id="userName" value="">
-		</div>
-		<div class="form-group">
-			<label for="pwd">Password:</label> <input type="password"
-				class="form-control" name="password" id="pwd" value="">
-		</div>
-		
-		<div class="form-group">
-			<label for="conf_pwd">Confirm password:</label> <input type="password"
-				class="form-control" name="confirm_password" id="conf_pwd" value="">
-		</div>
-		
-		<div class="form-group">
-			<label for="email">Email:</label> <input type="email"
-				class="form-control" name="email" id="email" value="">
-		</div>
-		<button type="reset" class="btn btn-default">Reset</button>
-		<button type="button" onclick="register()" class="btn btn-default">Submit</button>
-	</form>
+	<%@ include file="header.jsp" %>
+	<div class="container">
+		<form id="registerForm" method="POST" action="/Roadtrip/register" class="form-horizontal">
+			<div class="form-group" id="nameField">
+				<label class="control-label" for="name">Name:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
+				<input class="form-control" id="name" type = "text" name="name" required="true"/>
+			</div>
+			
+			<div class="form-group" id="age">
+				<label class="control-label" for="birthYear">Birth Year:</label>
+				<input class="form-control" id="birthYear" type="number" name="birthYear" min="1950" max="2000">
+			</div>
+			
+			<div class="form-group" id="phoneField">
+				<label class="control-label" for="telephone">Phone:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${invalid_phone_msg}</h6>
+				<input class="form-control" id="telephone" type = "tel" name = "telephone" required="true"/>
+			</div>
+			
+			<div class="form-group" id="emailField">
+				<label class="control-label" for="email">Email:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${invalid_email_msg}</h6>
+				<input class="form-control" id="email"  type = "email" name = "email" required="true"/>
+			</div>
+			<h4 style="color:red">${email_taken_msg}</h4>
+			
+			<div class="form-group" id="usernameFiled">
+				<label class="control-label" for="username">Username:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${short_username_msg}</h6>
+				<input id="username" class="form-control" type = "text" name = "username" required="true"/>
+			</div>
+			<h4 style="color:red">${username_taken_msg}</h4>
+			
+			<div class="form-group" id="passwordField">
+				<label class="control-label" for="password">Password:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${weak_password_msg}</h6>
+				<input id="password" class="form-control" type = "password" name = "password" required="true"/>
+			</div>
+			
+			<div class="form-group" id="rePasswordField">
+				<label class="control-label" for="retype-password">Confirm Password:</label>
+				<input id="retype-password" class="form-control" type = "password" name = "confirm_password" required="true"/>
+			</div>
+			<h4 style="color:red">${confirm_error_msg}</h4>
+			
+			<div class="form-group">
+				<label class="control-label" for="personType">Are you driver or passanger:</label>
+				<select class="form-control" name="personType" id="personType"">
+					<option value="DRIVER">Driver</option>
+					<option value="PASSANGER">Passanger</option>
+				</select>
+			</div>
+				
+			<div class="form-group" id="hasDriverLicense">
+				<label class="control-label" for="driverOption">Do you have a driving license?</label>
+				<div class="row">
+					<label class="control-label">Yes</label>
+					<input type="radio" name="driverLicense" value="Yes"/>
+				</div>
+				<div class="row">
+					<label class="control-label">No</label>
+					<input type="radio" name="driverLicense" value="No" checked="checked" />
+				</div>
+			</div>
+			
+			<input type="reset" value="reset" class="btn btn-warning"/>
+			<input type="submit" name="registerSubmit" value="submit" class="btn btn-primary"/>
+		</form>	
+	</div>
+	<%@ include file="footer.jsp" %>
 	
 </body>
 </html>

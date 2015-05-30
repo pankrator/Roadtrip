@@ -10,9 +10,11 @@ import javax.persistence.TypedQuery;
 import slbedu.library.model.Driver;
 
 @Singleton
-public class DriverDAO extends BaseDAO<Driver>{
-	private String selectedColumns = "";
+public class DriverDAO extends BaseDAO<Driver> {
+	private String selectedColumns = "*";
+	
 	private String tableName = "Driver";
+	
 	@PersistenceContext(unitName = "roadtrip")
 	private EntityManager em;
 

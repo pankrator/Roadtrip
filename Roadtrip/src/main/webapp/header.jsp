@@ -21,15 +21,15 @@
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
-	    	<li><a href="Home">Home</a></li>
-	      	<li><a href="AboutUs">About Us</a></li>
-			<li><a href="History">History</a></li>		
+	    	<li><a href="/Roadtrip/">Home</a></li>
+	      	<li><a href="about/">About Us</a></li>
+			<li><a href="history/">History</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav pull-right">
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
-				<li><a href="Statistics">Statistics</a></li>	
-				<li><a href="Profile" class="text-info">My Profile</a></li>
-				<li><form method="POST" action="Logout">
+				<li><a href="statistics">Statistics</a></li>	
+				<li><a href="profile" class="text-info">My Profile</a></li>
+				<li><form method="POST" action="logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />
 				</form>
 				</li>

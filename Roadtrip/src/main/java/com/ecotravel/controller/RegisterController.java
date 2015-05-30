@@ -16,9 +16,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
+import slbedu.library.model.Driver;
+import slbedu.library.model.Passenger;
+import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
 import slbedu.library.services.RegisterService;
-import slbedu.library.utils.AuthenticationUtils;
+
+import com.ecotravel.enums.PersonType;
 
 @Stateless
 @Path("register")
@@ -43,22 +47,42 @@ public class RegisterController {
 					 @FormParam(value="username") String username,
 					 @FormParam(value="password") String password,
 					 @FormParam(value="confirm_password") String password2,
-					 @FormParam(value="email") String email) throws ServletException, IOException{
+					 @FormParam(value="email") String email,
+					 @FormParam(value="personType") PersonType type,
+					 @FormParam("telephone") String telephone,
+					 @FormParam("name") String name,
+					 @FormParam("birthYear") int birthYear) throws ServletException, IOException{
 		
+		RequestDispatcher rd = null;
+
 //		if(password.equals(password2)){
 //			
 //		}
 //		password = AuthenticationUtils.getHashedPassword(password);
 		
-		Profile profile = new Profile();
-		profile.setEmail(email);	
-		profile.setPassword(password);
-		profile.setUsername(username);
-		
-		regService.register(profile);
-		
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/login.jsp");
+		if (!password.equals(password2)) {
+			request.setAttribute("confirm_error_msg", "Password mismatch!");
+			rd = request.getRequestDispatcher("/register.jsp");
+		} else {
+			Person person = null;
+			if (type == PersonType.DRIVER) {
+				person = new Driver();
+			} else {
+				person = new Passenger();
+			}
+			person.setBirthYear(birthYear);
+			person.setName(name);
+			person.setTelephone(telephone);
+			
+			Profile profile = new Profile();
+			profile.setEmail(email);
+			profile.setPassword(password);
+			profile.setUsername(username);
+			
+			regService.register(profile, person);
+			
+			rd = request.getRequestDispatcher("/login.jsp");	
+		}
 		
 		rd.forward(request, response);
 		
