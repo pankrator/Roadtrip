@@ -81,10 +81,9 @@ public class RegisterController {
 			
 			regService.register(profile, person);
 			
-			rd = request.getRequestDispatcher("/login.jsp");	
+			rd = request.getRequestDispatcher("/login.jsp");
 		}
 		
-		rd.forward(request, response);
-		
+		rd.forward(request, response);		
 	}
 }

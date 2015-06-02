@@ -10,7 +10,7 @@
 	<div id="welcome" class="container">
 		
 		
-		<form id="loginForm" method="POST" class="fom-horizontal" action="login">
+		<form id="loginForm" method="POST" class="fom-horizontal" action="/Roadtrip/login">
 			<div class="form-group">
 				<label for="username" class="col-md-2 control-label">Username:</label>
 				<div class="col-md-10">
@@ -28,9 +28,12 @@
 				<input type="submit" value="Submit" class="btn btn-success">
 			</div>
 		</form>
-			<a id="forgottenPassword" href="ForgottenPassword" class="text-danger">Forgotten password</a>
-			<a id="registerForm" href="register/" class="text-info">Create new account</a>
-			 	
+		
+		<a id="forgottenPassword" href="ForgottenPassword" class="text-danger">Forgotten password</a>
+		<a id="registerForm" href="register/" class="text-info">Create new account</a>
+			
+		<h3 style="color:red"> ${login_error} </h3>
+		<h4>${reg_complete_msg}</h4>	 	
 	</div>
 	<%@ include file="footer.jsp" %>
 </body>

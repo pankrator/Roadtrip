@@ -6,9 +6,8 @@
 	<persistence-unit name="roadtrip" transaction-type="JTA">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<jta-data-source>MyAppDS</jta-data-source>
-    	<exclude-unlisted-classes>false</exclude-unlisted-classes>
-	    <properties>
-	        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(foreignKeys=true)"/>
+		<properties>
+	        <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
 	        <property name="openjpa.jdbc.DBDictionary" value="mysql" />
 	    </properties>
 </persistence-unit>

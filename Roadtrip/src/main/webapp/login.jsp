@@ -11,8 +11,7 @@
 	<% if (((UserContext)(request.getAttribute("context"))).getProfile() == null) { %>
 		<form method="post" action="/Roadtrip/login">
 			Username: <input type="text" name="username" />
-			Password: <input type="password" name="password" />
-			
+			Password: <input type="password" name="password" />			
 			<input type="submit" value="Sign in"/> 	
 		</form>
 	<% } else { %>

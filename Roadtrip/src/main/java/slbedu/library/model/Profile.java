@@ -1,17 +1,22 @@
 package slbedu.library.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Profile {
+public class Profile implements Serializable {
+	private static final long serialVersionUID = -7740148377896592334L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
 	private String username;
@@ -21,6 +26,7 @@ public class Profile {
 	private String password;
 	
 	@OneToOne
+	@JoinColumn(name = "personId")
 	private Person person;
 
 	public Person getPerson() {
