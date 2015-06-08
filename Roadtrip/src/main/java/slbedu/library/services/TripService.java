@@ -18,4 +18,9 @@ public class TripService {
 	public List<Trip> getTripByDriverId(Driver driver) {
 		return tripDAO.findTripsByDriverId(driver);
 	}
+	
+	public Trip addNewTrip(Trip trip) {
+		return tripDAO.save(trip);
+	}
+	
 }
