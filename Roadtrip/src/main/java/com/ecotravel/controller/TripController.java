@@ -1,6 +1,9 @@
 package com.ecotravel.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -54,8 +57,19 @@ public class TripController {
 			rd = request.getRequestDispatcher("/trip.jsp");
 		} else {
 			Trip trip = new Trip();
-//			trip.setDepartureTime(departureTime); // ??? Date or Time or both ???
-			trip.setDriver(trip.getDriver()); // where do we get the driver ???
+			
+			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
+			Date departureTime = null;
+			try {
+				departureTime = formatter.parse(date + " " + time);
+				//System.out.println(date);
+				//System.out.println(formatter.format(date));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+					
+			trip.setDepartureTime(departureTime);
+//			trip.setDriver(); // TODO: set the driver field
 			trip.setFreePlaces(freePlaces);
 			trip.setTravelFrom(travelFrom);
 			trip.setTravelTo(travelTo);
