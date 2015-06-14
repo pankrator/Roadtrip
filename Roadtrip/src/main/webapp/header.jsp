@@ -29,7 +29,7 @@
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
 				<li><a href="statistics">Statistics</a></li>	
 				<li><a href="profile" class="text-info">My Profile</a></li>
-				<li><form method="POST" action="logout">
+				<li><form method="POST" action="/Roadtrip/logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />
 				</form>
 				</li>

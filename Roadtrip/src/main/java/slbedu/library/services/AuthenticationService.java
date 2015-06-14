@@ -31,4 +31,8 @@ public class AuthenticationService {
 		
 		return false;
 	}
+	
+	public void logout(){
+		this.context.setProfile(null);		
+	}
 }
