@@ -53,33 +53,31 @@ public class TripController {
 					 @FormParam(value="time") String time,
 					 @FormParam(value="freePlaces") int freePlaces) throws ServletException, IOException {
 		
+//		System.out.println(date);
+//		System.out.println(time);
+		
 		RequestDispatcher rd = null;
 		
-//		if(tripService.hasActiveTrip()) { 
-//			request.setAttribute("trip_creation_error_msg", "No more active trips allowed!");
-//			rd = request.getRequestDispatcher("/trip.jsp");
-//		} else {
-			Trip trip = new Trip();
-			
-			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
-			Date departureTime = null;
-			try {
-				departureTime = formatter.parse(date + " " + time);
-				//System.out.println(date);
-				//System.out.println(formatter.format(date));
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}
-					
-			trip.setDepartureTime(departureTime);
-			trip.setDriver((Driver)userContext.getProfile().getPerson());
-			trip.setFreePlaces(freePlaces);
-			trip.setTravelFrom(travelFrom);
-			trip.setTravelTo(travelTo);
-			
-			tripService.addNewTrip(trip);
-			rd = request.getRequestDispatcher("/profile.jsp");
-//		}
+		Trip trip = new Trip();
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		Date departureTime = null;
+		try {
+			departureTime = formatter.parse(date + " " + time);
+			System.out.println(departureTime);
+//			System.out.println(formatter.format(date));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+				
+		trip.setDepartureTime(departureTime);
+		trip.setDriver((Driver)userContext.getProfile().getPerson());
+		trip.setFreePlaces(freePlaces);
+		trip.setTravelFrom(travelFrom);
+		trip.setTravelTo(travelTo);
+		
+		tripService.addNewTrip(trip);
+		rd = request.getRequestDispatcher("/profile.jsp");
 		
 		rd.forward(request, response);
 	}
