@@ -35,4 +35,6 @@ public class ProfileDAO extends BaseDAO<Profile>{
 	public Profile find(int id) {
 		return super.find(id, Profile.class);
 	}
+	
+	
 }
