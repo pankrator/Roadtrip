@@ -10,7 +10,7 @@
 	<div id="welcome" class="container">
 		
 		
-		<form id="loginForm" method="POST" class="fom-horizontal" action="/Roadtrip/login">
+		<form id="loginForm" method="POST" class="fom-horizontal" action="login">
 			<div class="form-group">
 				<label for="username" class="col-md-2 control-label">Username:</label>
 				<div class="col-md-10">

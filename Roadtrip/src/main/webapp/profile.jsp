@@ -1,5 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="slbedu.library.model.Trip"%>
+<%@page import="slbedu.library.model.Profile"%>
+<%@page import="slbedu.library.model.Driver"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,27 +10,25 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-
+	
 	<div id="welcome" class="container">
 		<h1>My Profile:</h1>
 		<hr>
 		<div class="text-success">
-			<p>Name: <strong>${name}</strong> <p>
-			<p>Username: ${username} </p>
-			<p>Year of birth: ${birthYear}</p>
-			<p>E-mail: ${email} </p>
-			<p>Phone: ${phone} </p>
-			<p>Driving License: Yes</p>
-			<p>License year: ${licenseYear}</p>
-			<p>Is smoking in car allowed: ${isSmoking}</p>
-			<p>Music: ${music} </p>
-			<p>Number of travels: ${numberOfTravels}</p>
-			<p>Rating: ${rating }</p>
+			<% if (((UserContext)(request.getAttribute("context"))).getProfile().getPerson() instanceof Driver) { %>
+				<%@ include file="driver-info.jsp"%>
+			<% } else { %>
+				<%@ include file="passanger-info.jsp" %>
+			<% } %>
 		</div>
 		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
 		
-		${tripsList}
-		<% List<Trip> listOfTrips = (List<Trip>)(request.getAttribute("tripsList")); %>
+		<%
+			List<Trip> listOfTrips = (List<Trip>)(request.getAttribute("tripsList"));
+			for (Trip trip : listOfTrips) {
+				out.print("<div>" + trip.getTravelFrom() + " - " + trip.getTravelTo() + "</div>");
+			}
+		%>
 		
 	</div>
 	<%@ include file="footer.jsp" %>
