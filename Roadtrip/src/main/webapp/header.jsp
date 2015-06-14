@@ -22,8 +22,8 @@
 	    <ul class="nav navbar-nav">
 	    
 	    	<li><a href="trip">Home</a></li>
-	      	<li><a href="about/">About Us</a></li>
-			<li><a href="history/">History</a></li>
+	    	<li><a href="/about.jsp">About Us</a></li>
+			<li><a href="/history.jsp">History</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav pull-right">
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
