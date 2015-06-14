@@ -20,7 +20,7 @@
 			out.print("</div>");
 		}
 		
-		static DateFormat formatter = new SimpleDateFormat("dd-MMM HH:mm"); 
+		static DateFormat formatter = new SimpleDateFormat("dd-MM HH:mm"); 
 	
 		static void printAnAdvertisment(JspWriter out, Trip trip) throws IOException{
 			out.print("<div class=\"row\">");

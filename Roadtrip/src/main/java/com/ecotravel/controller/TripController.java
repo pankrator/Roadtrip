@@ -18,6 +18,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
 import slbedu.library.context.UserContext;
@@ -81,28 +82,28 @@ public class TripController {
 	}
 	
 	@GET
-	@Consumes("application/x-www-form-urlencoded")
 	@Path("/searchTrip")
 	public void searchTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
-			 @FormParam(value="fromCity") String fromCity,
-			 @FormParam(value="toCity") String toCity,
-			 @FormParam(value="date") Date date) throws ServletException, IOException {
+			 @QueryParam(value="fromCity") String fromCity,
+			 @QueryParam(value="toCity") String toCity,
+			 @QueryParam(value="date") Date date) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
-		rd = request.getRequestDispatcher("/profile.jsp");
 		Trip trip = new Trip();
-		trip.setDepartureTime(date);
+//		trip.setDepartureTime(date);
 		trip.setTravelFrom(fromCity);
 		trip.setTravelTo(toCity);
 		
 		List<Trip> trips = tripService.findMatchingTrips(trip);
 //		if(trips != null && trips.size() > 0){
 			request.setAttribute("matchingTrips", trips);
-			response.sendRedirect(request.getContextPath() + "/matchingTrips");
+			rd = request.getRequestDispatcher("/matchingTrips.jsp");
 //		//}
 //		else{			
 //			rd.forward(request, response);
 //		}
+			
+		rd.forward(request, response);
 	}
 	
 	

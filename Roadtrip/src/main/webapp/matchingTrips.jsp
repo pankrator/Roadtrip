@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="slbedu.library.model.Trip"%>
@@ -41,7 +42,7 @@
 					 		  		+ "<div class=\"col-lg-2\">Time</div>"
 					 		  		+ "<div class=\"col-lg-2\">Joint trip</div>"
 					 			+ "</div>");
-				ArrayList<Trip> matchingTrips = (ArrayList<Trip>)session.getAttribute("matchingTrips");	
+				List<Trip> matchingTrips = (List<Trip>)request.getAttribute("matchingTrips");	
 				for(Trip a : matchingTrips) 
 					{
 						printAnAdvertisment(out, a);
