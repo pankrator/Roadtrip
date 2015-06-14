@@ -19,6 +19,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
+import slbedu.library.context.UserContext;
+import slbedu.library.model.Driver;
 import slbedu.library.model.Trip;
 import slbedu.library.services.TripService;
 
@@ -28,6 +30,9 @@ public class TripController {
 	
 	@Inject
 	private TripService tripService;
+	
+	@Inject
+	private UserContext userContext;
 	
 	@GET
 	@Produces("application/json")
@@ -50,12 +55,10 @@ public class TripController {
 		
 		RequestDispatcher rd = null;
 		
-		// TODO: Check if user has already created a trip
-		boolean b = false;
-		if(b) { 
-			request.setAttribute("trip_creation_error_msg", "No more active trips allowed!");
-			rd = request.getRequestDispatcher("/trip.jsp");
-		} else {
+//		if(tripService.hasActiveTrip()) { 
+//			request.setAttribute("trip_creation_error_msg", "No more active trips allowed!");
+//			rd = request.getRequestDispatcher("/trip.jsp");
+//		} else {
 			Trip trip = new Trip();
 			
 			SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss");
@@ -69,14 +72,14 @@ public class TripController {
 			}
 					
 			trip.setDepartureTime(departureTime);
-//			trip.setDriver(); // TODO: set the driver field
+			trip.setDriver((Driver)userContext.getProfile().getPerson());
 			trip.setFreePlaces(freePlaces);
 			trip.setTravelFrom(travelFrom);
 			trip.setTravelTo(travelTo);
 			
 			tripService.addNewTrip(trip);
 			rd = request.getRequestDispatcher("/profile.jsp");
-		}
+//		}
 		
 		rd.forward(request, response);
 	}

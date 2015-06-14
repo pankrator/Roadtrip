@@ -64,7 +64,7 @@
 	  		<h4 style="color:red">${trip_creation_error_msg}</h4>
 	  		
 	  		<input type="reset" value="Reset" class="btn btn-warning"/>
-	  		<input type="submit" name="tripCreation" value="Create!" class="btn btn-primary">
+	  		<input type="submit" name="tripCreation" value="Create" class="btn btn-primary">
 		</form>
 		
 	</div>
