@@ -26,4 +26,16 @@ public class TripDAO extends BaseDAO<Trip> {
 		
 		return query.getResultList();
 	}
+	
+	public List<Trip> findTripsByTownsAndDate(Trip trip) {
+		String q = "SELECT trip FROM Trip trip WHERE "
+				+ "trip.travelFrom = "+ trip.getTravelFrom()
+				+ " AND travelTo = " + trip.getTravelTo()
+				+ "departureTime = " + trip.getDepartureTime();
+
+		TypedQuery<Trip> query = em.createNamedQuery(q, Trip.class);
+		
+		return query.getResultList();
+	}	
+	
 }

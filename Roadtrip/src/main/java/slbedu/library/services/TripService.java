@@ -23,4 +23,8 @@ public class TripService {
 		return tripDAO.save(trip);
 	}
 	
+	
+	public List<Trip> findMatchingTrips(Trip trip){
+		return tripDAO.findTripsByTownsAndDate(trip);
+	}
 }

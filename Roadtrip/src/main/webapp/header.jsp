@@ -27,7 +27,7 @@
 	    </ul>
 	    <ul class="nav navbar-nav pull-right">
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
-				<li><a href="statistics">Statistics</a></li>	
+				<li><a href="statistics">Statistics</a></li>
 				<li><a href="profile" class="text-info">My Profile</a></li>
 				<li><form method="GET" action="logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />

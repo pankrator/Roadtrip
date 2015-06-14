@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -78,5 +79,32 @@ public class TripController {
 		tripService.addNewTrip(trip);
 		response.sendRedirect(request.getContextPath() + "/profile");
 	}
+	
+	@GET
+	@Consumes("application/x-www-form-urlencoded")
+	@Path("/searchTrip")
+	public void searchTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
+			 @FormParam(value="fromCity") String fromCity,
+			 @FormParam(value="toCity") String toCity,
+			 @FormParam(value="date") Date date) throws ServletException, IOException {
+		RequestDispatcher rd = null;
+		
+		rd = request.getRequestDispatcher("/profile.jsp");
+		Trip trip = new Trip();
+		trip.setDepartureTime(date);
+		trip.setTravelFrom(fromCity);
+		trip.setTravelTo(toCity);
+		
+		List<Trip> trips = tripService.findMatchingTrips(trip);
+//		if(trips != null && trips.size() > 0){
+			request.setAttribute("matchingTrips", trips);
+			response.sendRedirect(request.getContextPath() + "/matchingTrips");
+//		//}
+//		else{			
+//			rd.forward(request, response);
+//		}
+	}
+	
+	
 	
 }
