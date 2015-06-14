@@ -45,7 +45,6 @@ public class TripController {
 	
 	@POST
 	@Consumes("application/x-www-form-urlencoded")
-	@Produces("application/json")
 	public void createTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
 					 @FormParam(value="fromCity") String travelFrom,
 					 @FormParam(value="toCity") String travelTo,
@@ -77,9 +76,7 @@ public class TripController {
 		trip.setTravelTo(travelTo);
 		
 		tripService.addNewTrip(trip);
-		rd = request.getRequestDispatcher("/profile.jsp");
-		
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/profile");
 	}
 	
 }

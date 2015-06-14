@@ -9,7 +9,7 @@
 	Login
 	
 	<% if (((UserContext)(request.getAttribute("context"))).getProfile() == null) { %>
-		<form method="post" action="/Roadtrip/login">
+		<form method="post" action="login">
 			Username: <input type="text" name="username" />
 			Password: <input type="password" name="password" />			
 			<input type="submit" value="Sign in"/> 	

@@ -48,7 +48,7 @@ public class LoginController {
 		
 		if (isAuthenticated) {
 //			rd = request.getRequestDispatcher("/profile.jsp");
-			response.sendRedirect("profile");
+			response.sendRedirect(request.getContextPath() + "/profile");
 		} else {
 			request.setAttribute("login_error", "Wrong username/password!");
 			

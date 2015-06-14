@@ -11,11 +11,13 @@
 <body>
 	<%@ include file="header.jsp" %>
 	
+	<% boolean isDriver = ((UserContext)(request.getAttribute("context"))).getProfile().getPerson() instanceof Driver; %>
+	
 	<div id="welcome" class="container">
 		<h1>My Profile:</h1>
 		<hr>
 		<div class="text-success">
-			<% if (((UserContext)(request.getAttribute("context"))).getProfile().getPerson() instanceof Driver) { %>
+			<% if (isDriver) { %>
 				<%@ include file="driver-info.jsp"%>
 			<% } else { %>
 				<%@ include file="passanger-info.jsp" %>
@@ -24,9 +26,11 @@
 		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
 		
 		<%
-			List<Trip> listOfTrips = (List<Trip>)(request.getAttribute("tripsList"));
-			for (Trip trip : listOfTrips) {
-				out.print("<div>" + trip.getTravelFrom() + " - " + trip.getTravelTo() + "</div>");
+			if (isDriver) {
+				List<Trip> listOfTrips = (List<Trip>)(request.getAttribute("tripsList"));
+				for (Trip trip : listOfTrips) {
+					out.print("<div>" + trip.getTravelFrom() + " - " + trip.getTravelTo() + "</div>");
+				}				
 			}
 		%>
 		

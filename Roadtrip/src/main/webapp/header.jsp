@@ -21,7 +21,7 @@
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
-	    	<li><a href="/Roadtrip/">Home</a></li>
+	    	<li><a href="trip">Home</a></li>
 	      	<li><a href="about/">About Us</a></li>
 			<li><a href="history/">History</a></li>
 	    </ul>
@@ -29,7 +29,7 @@
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
 				<li><a href="statistics">Statistics</a></li>	
 				<li><a href="profile" class="text-info">My Profile</a></li>
-				<li><form method="POST" action="/Roadtrip/logout">
+				<li><form method="GET" action="logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />
 				</form>
 				</li>

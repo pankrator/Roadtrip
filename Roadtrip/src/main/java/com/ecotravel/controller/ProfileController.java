@@ -15,6 +15,7 @@ import javax.ws.rs.core.Context;
 
 import slbedu.library.context.UserContext;
 import slbedu.library.model.Driver;
+import slbedu.library.model.Passenger;
 import slbedu.library.model.Trip;
 import slbedu.library.services.TripService;
 
@@ -33,9 +34,13 @@ public class ProfileController {
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/profile.jsp");
 		
-		Driver driver = (Driver) context.getProfile().getPerson();
-		List<Trip> trips = tripService.getTripByDriverId(driver);
-		request.setAttribute("tripsList", trips);
+		if (context.getProfile().getPerson() instanceof Driver) {
+			Driver driver = (Driver) context.getProfile().getPerson();
+			List<Trip> trips = tripService.getTripByDriverId(driver);
+			request.setAttribute("tripsList", trips);			
+		} else {
+//			Passenger passenger = (Passenger) context.getProfile().getPerson();
+		}
 		
 		rd.forward(request, response);
 	}

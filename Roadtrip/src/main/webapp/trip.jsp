@@ -13,7 +13,7 @@
 	<div id="welcome" class="container">
 		<div class="jumbotron"><h1>Create Your Trip</h1></div>
 		
-		<form method="POST" action="/Roadtrip/trip" class="form-horizontal">
+		<form method="POST" action="trip" class="form-horizontal">
 		
 			<div class="form-group">
 				<label for="fromCity" class="col-md-2 control-label">From:</label> 
