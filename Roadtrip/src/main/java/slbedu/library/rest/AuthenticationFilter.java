@@ -52,8 +52,9 @@ public class AuthenticationFilter implements Filter {
         request.setAttribute("context", context);
         
         if (needsAuth && context.getProfile() == null) {
-        	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-        	rd.forward(request, response);
+//        	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+//        	rd.forward(request, response);
+        	response.sendRedirect(request.getContextPath() + "/");
         } else {
         	chain.doFilter(request, response);
         }

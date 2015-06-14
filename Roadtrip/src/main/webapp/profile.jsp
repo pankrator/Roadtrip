@@ -1,4 +1,7 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>
+<%@page import="java.io.IOException"%>
 <%@page import="slbedu.library.model.Trip"%>
 <%@page import="slbedu.library.model.Profile"%>
 <%@page import="slbedu.library.model.Driver"%>
@@ -9,32 +12,68 @@
 <title>Road trip</title>
 </head>
 <body>
-	<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
+
+	<%! static void printInCell(JspWriter out, String a) throws IOException {
+			out.print("<div class=\"col-lg-2\">");
+				out.print(a);
+			out.print("</div>");
+		}
+		
+		static DateFormat formatter = new SimpleDateFormat("dd-MMM HH:mm"); 
 	
-	<% boolean isDriver = ((UserContext)(request.getAttribute("context"))).getProfile().getPerson() instanceof Driver; %>
-	
+		static void printAnAdvertisment(JspWriter out, Trip trip) throws IOException{
+			out.print("<div class=\"row\">");
+				printInCell(out, trip.getTravelFrom());
+				printInCell(out, trip.getTravelTo());
+				printInCell(out, formatter.format(trip.getDepartureTime()));
+				printInCell(out, String.valueOf(trip.getFreePlaces()));
+			out.print("</div>");
+		}
+	%>
+
+	<%
+		boolean isDriver = ((UserContext) (request.getAttribute("context")))
+				.getProfile().getPerson() instanceof Driver;
+	%>
+
 	<div id="welcome" class="container">
 		<h1>My Profile:</h1>
 		<hr>
 		<div class="text-success">
-			<% if (isDriver) { %>
-				<%@ include file="driver-info.jsp"%>
-			<% } else { %>
-				<%@ include file="passanger-info.jsp" %>
-			<% } %>
+			<%
+				if (isDriver) {
+			%>
+			<%@ include file="driver-info.jsp"%>
+			<%
+				} else {
+			%>
+			<%@ include file="passanger-info.jsp"%>
+			<%
+				}
+			%>
 		</div>
 		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
-		
+
 		<%
 			if (isDriver) {
-				List<Trip> listOfTrips = (List<Trip>)(request.getAttribute("tripsList"));
+				List<Trip> listOfTrips = (List<Trip>) (request
+						.getAttribute("tripsList"));
+
+				out.print("<div class=\"row\">"
+						+ "<div class=\"col-lg-2\">From</div>"
+						+ "<div class=\"col-lg-2\">To</div>"
+						+ "<div class=\"col-lg-2\">Depature time</div>"
+						+ "<div class=\"col-lg-2\">Free places</div>"
+						+ "</div>");
+
 				for (Trip trip : listOfTrips) {
-					out.print("<div>" + trip.getTravelFrom() + " - " + trip.getTravelTo() + "</div>");
-				}				
+					printAnAdvertisment(out, trip);
+				}
 			}
 		%>
-		
+
 	</div>
-	<%@ include file="footer.jsp" %>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

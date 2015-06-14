@@ -1,0 +1,28 @@
+.form-control{
+	width: 40%;
+}
+
+.trip-row{
+	margin-top: 1%;
+}
+
+
+#parent_div_1{
+    width:1000px;
+    height:900px;
+    float:left;
+    margin-left: 5px;
+}
+
+#parent_div_2{
+    width:5px;
+    height:900;
+    float:left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.child_div_1{
+    float:left;
+    margin-top: 20px;
+}
