@@ -55,6 +55,10 @@
 		</div>
 		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
 
+		<form method="GET" action="profile/profileEdit" class="form-horizontal">
+			<input type="submit" value="Edit Profile" class="btn btn-info"/>
+		</form>
+
 		<%
 			if (isDriver) {
 				List<Trip> listOfTrips = (List<Trip>) (request
@@ -74,6 +78,7 @@
 		%>
 
 	</div>
+	
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
