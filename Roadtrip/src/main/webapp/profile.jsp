@@ -53,12 +53,12 @@
 				}
 			%>
 		</div>
-		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
 
 		<form method="GET" action="profile/profileEdit" class="form-horizontal">
 			<input type="submit" value="Edit Profile" class="btn btn-info"/>
 		</form>
-
+		
+		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
 		<%
 			if (isDriver) {
 				List<Trip> listOfTrips = (List<Trip>) (request

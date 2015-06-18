@@ -27,8 +27,8 @@
 			
 	<div id="welcome" class="container">
 		<form id="editForm" method="POST" 
-			action=" <% if(isDriver) out.print("profile/profileEdit/driver"); 
-						else out.print("profile/profileEdit/passenger"); %>">
+			action=" <% if(isDriver) out.print("profileEditDriver"); 
+						else out.print("profileEditPassenger"); %>">
 			<div class="form-group" id="nameField">
 				<label class="control-label" for="name">Name:</label>
 				<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
@@ -66,6 +66,7 @@
 			
 			<div class="form-group" id="rePasswordField">
 				<label class="control-label" for="retype-password">Retype Password:</label>
+				<h6 style="color:red; display:inline; margin-left:5px;">${confirm_error_msg}</h6>
 				<input id="retype-password" class="form-control" type = "password" name = "rePassword" required="true"/>
 			</div>
 			<h4 style="color:red">${edit_error_msg}</h4>

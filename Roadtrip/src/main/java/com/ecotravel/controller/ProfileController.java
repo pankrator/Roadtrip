@@ -56,6 +56,7 @@ public class ProfileController {
 	
 	
 	// Editing personal profile:
+	
 	@GET
 	@Path("/profileEdit")
 	@Produces("application/json")
@@ -66,57 +67,102 @@ public class ProfileController {
 		rd.forward(request, response);
 	}
 	
-	// this method edits profile if user is passenger
+	// edits profile if user is passenger
 	@POST
-	@Path("/profileEdit/passenger")
+	@Path("/profileEditPassenger")
 	@Consumes("application/x-www-form-urlencoded")
 	@Produces("application/json")
-	public void postPassenger(@Context HttpServletRequest request, @Context HttpServletResponse response,@FormParam(value="username") String username,
+	public void postPassenger(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			 @FormParam(value="name") String name,
 			 @FormParam(value="birthYear") int birthYear,
 			 @FormParam(value="telephone") String telephone,
 			 @FormParam(value="password") String password,
-			 @FormParam(value="confirm_password") String password2) throws ServletException, IOException {
+			 @FormParam(value="rePassword") String password2) throws ServletException, IOException {
 
-		RequestDispatcher rd = null;
+		// just to be sure we get all parameters correctly
+		System.out.println(name);
+		System.out.println(birthYear);
+		System.out.println(telephone);
+		System.out.println(password);
+		System.out.println(password2);
+		System.out.println("IN PROFILE_EDIT_PASSENGER CONTROLLER");
 		
 		// TODO: 
 		// validate parameters
 		// set error messages -> request.setAttribute()
-		// save changes into DB
 		
-		System.out.println("IN PROFILE_EDIT_PASSENGER CONTROLLER");
+		RequestDispatcher rd = null;
 		
-		rd = request.getRequestDispatcher("profile.jsp");
-		rd.forward(request, response);
+		if (!password.equals(password2)) {
+			request.setAttribute("confirm_error_msg", "Password mismatch!");
+			rd = request.getRequestDispatcher("/profileEdit.jsp");
+			rd.forward(request, response);
+		} else {
+			Person person = new Passenger();
+			person.setName(name);
+			person.setBirthYear(birthYear);
+			person.setTelephone(telephone);
+			
+			Profile profile = new Profile();
+			profile.setPassword(password);
+		
+			// TODO: save changes in DB
+			
+			response.sendRedirect("/Roadtrip/profile"); 
+		}
 
 	}
 	
-	// this method edits profile if user is driver
+	// edits profile if user is driver
 	@POST
-	@Path("/profileEdit/driver")
+	@Path("profileEditDriver")
 	@Consumes("application/x-www-form-urlencoded")
 	@Produces("application/json")
-	public void postDriver(@Context HttpServletRequest request, @Context HttpServletResponse response,@FormParam(value="username") String username,
+	public void postDriver(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			 @FormParam(value="name") String name,
 			 @FormParam(value="birthYear") int birthYear,
 			 @FormParam(value="telephone") String telephone,
 			 @FormParam(value="password") String password,
-			 @FormParam(value="confirm_password") String password2,
+			 @FormParam(value="rePassword") String password2,
 			 @FormParam(value="isSmoking") String smoking,
 			 @FormParam(value="musicInTheCar") String music) throws ServletException, IOException {
-
-		RequestDispatcher rd = null;		
+		
+		// just to be sure we get all parameters correctly
+		System.out.println(name);
+		System.out.println(birthYear);
+		System.out.println(telephone);
+		System.out.println(password);
+		System.out.println(password2);
+		System.out.println(smoking);
+		System.out.println(music);
+		System.out.println("IN PROFILE_EDIT_DRIVER CONTROLLER");
 		
 		// TODO: 
 		// validate parameters
 		// set error messages -> request.setAttribute()
-		// save changes into DB
 		
-		System.out.println("IN PROFILE_EDIT_DRIVER CONTROLLER");
-
-		rd = request.getRequestDispatcher("profile.jsp");
-		rd.forward(request, response);
+		RequestDispatcher rd = null;
+		
+		if (!password.equals(password2)) {
+			request.setAttribute("confirm_error_msg", "Password mismatch!");
+			rd = request.getRequestDispatcher("/profileEdit.jsp");
+			rd.forward(request, response);
+		} else {
+			Person person = new Driver();
+			person.setName(name);
+			person.setBirthYear(birthYear);
+			person.setTelephone(telephone);
+			
+			Profile profile = new Profile();
+			profile.setPassword(password);
+			
+			// set isSmoking ???
+			// set music ???
+			
+			// TODO: save changes in DB 
+			
+			response.sendRedirect("/Roadtrip/profile"); 
+		}
 		
 	}
 	
