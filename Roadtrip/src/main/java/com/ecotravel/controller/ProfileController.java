@@ -17,14 +17,13 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import com.ecotravel.enums.PersonType;
-
 import slbedu.library.context.UserContext;
 import slbedu.library.model.Driver;
 import slbedu.library.model.Passenger;
 import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
 import slbedu.library.model.Trip;
+import slbedu.library.services.ProfileService;
 import slbedu.library.services.TripService;
 
 @Stateless
@@ -33,6 +32,9 @@ public class ProfileController {
 	
 	@Inject
 	private TripService tripService;
+	
+	@Inject
+	private ProfileService profileService;
 	
 	@Inject
 	private UserContext context;
@@ -106,7 +108,7 @@ public class ProfileController {
 			Profile profile = new Profile();
 			profile.setPassword(password);
 		
-			// TODO: save changes in DB
+//			profileService.editProfile(profile, person);
 			
 			response.sendRedirect("/Roadtrip/profile"); 
 		}
@@ -156,10 +158,11 @@ public class ProfileController {
 			Profile profile = new Profile();
 			profile.setPassword(password);
 			
+			// TODO:
 			// set isSmoking ???
 			// set music ???
 			
-			// TODO: save changes in DB 
+//			profileService.editProfile(profile, person);
 			
 			response.sendRedirect("/Roadtrip/profile"); 
 		}

@@ -49,9 +49,9 @@ public class RegisterController {
 					 @FormParam(value="confirm_password") String password2,
 					 @FormParam(value="email") String email,
 					 @FormParam(value="personType") PersonType type,
-					 @FormParam("telephone") String telephone,
-					 @FormParam("name") String name,
-					 @FormParam("birthYear") int birthYear) throws ServletException, IOException{
+					 @FormParam(value="telephone") String telephone,
+					 @FormParam(value="name") String name,
+					 @FormParam(value="birthYear") int birthYear) throws ServletException, IOException{
 		
 		RequestDispatcher rd = null;
 
