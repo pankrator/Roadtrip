@@ -150,12 +150,14 @@ public class ProfileController {
 			rd = request.getRequestDispatcher("/profileEdit.jsp");
 			rd.forward(request, response);
 		} else {
-			Person person = new Driver();
+			Profile profile = context.getProfile();
+			Driver person = (Driver)profile.getPerson();
 			person.setName(name);
 			person.setBirthYear(birthYear);
 			person.setTelephone(telephone);
+			person.setMusicInTheCar(music);
+//			person.setSmoking(smoking);
 			
-			Profile profile = new Profile();
 			profile.setPassword(password);
 			
 			// TODO:

@@ -29,6 +29,20 @@ public class PersonDAO extends BaseDAO<Person> {
 		}
 	}
 	
+	@Override
+	public Person save(Person toSave) {
+		Person current = this.find(toSave.getId(), Person.class);
+		
+		if (current == null) {
+			em.persist(toSave);
+		} else {
+			toSave = em.merge(toSave);
+			em.flush();
+		}
+		
+		return toSave;
+	}
+	
 	/* !!!
 	 * this method will only work if all new parameters of Person are
 	 * set with the new values before we call updatePerson(Person person);

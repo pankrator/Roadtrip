@@ -17,7 +17,7 @@ public class Profile implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private int id;
+	private Long id;
 	
 	private String username;
 	
@@ -37,11 +37,11 @@ public class Profile implements Serializable {
 		this.person = person;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

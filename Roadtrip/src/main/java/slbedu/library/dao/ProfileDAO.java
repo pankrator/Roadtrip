@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
 
 @Singleton
@@ -32,8 +33,22 @@ public class ProfileDAO extends BaseDAO<Profile>{
 		return super.findAll(selectedColumns, tableName, Profile.class);
 	}
 
-	public Profile find(int id) {
+	public Profile find(Long id) {
 		return super.find(id, Profile.class);
+	}
+	
+	@Override
+	public Profile save(Profile toSave) {
+		Profile current = this.find(toSave.getId(), Profile.class);
+		
+		if (current == null) {
+			em.persist(toSave);
+		} else {
+			toSave = em.merge(toSave);
+			em.flush();
+		}
+		
+		return toSave;
 	}
 	
 	

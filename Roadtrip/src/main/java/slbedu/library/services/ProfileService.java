@@ -16,10 +16,14 @@ public class ProfileService {
 	private PersonDAO personDao;
 	
 	public Profile editProfile(Profile profile, Person person) {
-		person = personDao.updatePerson(person);
+		personDao.save(person);
+//		person = personDao.updatePerson(person);
 		profile.setPerson(person);
-
-		return profileDao.updateProfile(profile.getUsername(), profile.getPassword());
+		
+		profileDao.save(profile);
+		
+		return profile;
+//		return profileDao.updateProfile(profile.getUsername(), profile.getPassword());
 	}
 
 }

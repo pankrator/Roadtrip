@@ -27,17 +27,20 @@ public class BaseDAO<T> {
 	}
 	
 	public T save(T toSave) {
+//		toSave = em.merge(toSave);
+//		em.flush();
+//		
+//		return toSave;
 		if (em.contains(toSave)) {
-			em.refresh(toSave);
+			em.flush();	
 		} else {
 			em.persist(toSave);
 		}
 		
-		em.flush();
 		return toSave;
 	}
 	
-	protected T find(int id, Class<T> claz) {
+	protected T find(Long id, Class<T> claz) {
 		// TypedQuery<Driver> q =
 		// em.createQuery("SELECT d.name FROM Driver d WHERE id=:id",
 		// Driver.class)

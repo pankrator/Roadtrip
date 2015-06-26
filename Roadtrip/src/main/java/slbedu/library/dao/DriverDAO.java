@@ -28,7 +28,7 @@ public class DriverDAO extends BaseDAO<Driver> {
 		return super.findAll(selectedColumns, tableName, Driver.class);
 	}
 
-	public Driver find(int id) {
+	public Driver find(Long id) {
 		return super.find(id, Driver.class);
 	}
 }

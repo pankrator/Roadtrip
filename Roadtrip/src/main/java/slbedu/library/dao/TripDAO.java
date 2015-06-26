@@ -16,7 +16,7 @@ public class TripDAO extends BaseDAO<Trip> {
 	@PersistenceContext(unitName = "roadtrip")
 	private EntityManager em;
 	
-	public Trip find(int id) {
+	public Trip find(Long id) {
 		return super.find(id, Trip.class);
 	}
 	
