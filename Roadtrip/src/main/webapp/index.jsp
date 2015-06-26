@@ -30,7 +30,7 @@
 		</form>
 		
 		<a id="forgottenPassword" href="ForgottenPassword" class="text-danger">Forgotten password</a>
-		<a id="registerForm" href="register/" class="text-info">Create new account</a>
+		<a id="registerForm" href="register" class="text-info">Create new account</a>
 			
 		<h3 style="color:red"> ${login_error} </h3>
 		<h4>${reg_complete_msg}</h4>	 	
