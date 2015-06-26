@@ -35,4 +35,19 @@ public class ProfileDAO extends BaseDAO<Profile>{
 	public Profile find(int id) {
 		return super.find(id, Profile.class);
 	}
+	
+	
+	// NOT TESTED
+	public Profile updateProfile(String username, String newPassword) {
+		em.getTransaction().begin();
+		TypedQuery<Profile> query = em.createQuery("UPDATE Profile SET password = :newPassword WHERE username = :username", Profile.class);
+		query.setParameter("newPassword", newPassword);
+		query.setParameter("username", username);
+		int updateCount = query.executeUpdate();
+		em.getTransaction().commit();
+		
+		System.out.println(updateCount);
+		
+		return findByUsername(username);
+	}
 }

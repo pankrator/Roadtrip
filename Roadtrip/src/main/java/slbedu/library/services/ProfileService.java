@@ -15,11 +15,11 @@ public class ProfileService {
 	@Inject
 	private PersonDAO personDao;
 	
-//	public Profile editProfile(Profile profile, Person person) {
-//		person = personDao.update(person);
-//		profile.setPerson(person);
-//
-//		return profileDao.update(profile);
-//	}
+	public Profile editProfile(Profile profile, Person person) {
+		person = personDao.updatePerson(person);
+		profile.setPerson(person);
+
+		return profileDao.updateProfile(profile.getUsername(), profile.getPassword());
+	}
 
 }

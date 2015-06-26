@@ -108,7 +108,7 @@ public class ProfileController {
 			Profile profile = new Profile();
 			profile.setPassword(password);
 		
-//			profileService.editProfile(profile, person);
+			profileService.editProfile(profile, person);
 			
 			response.sendRedirect("/Roadtrip/profile"); 
 		}
@@ -162,7 +162,7 @@ public class ProfileController {
 			// set isSmoking ???
 			// set music ???
 			
-//			profileService.editProfile(profile, person);
+			profileService.editProfile(profile, person);
 			
 			response.sendRedirect("/Roadtrip/profile"); 
 		}
