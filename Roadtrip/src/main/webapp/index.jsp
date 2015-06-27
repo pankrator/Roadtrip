@@ -9,8 +9,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class="body">
-		<div class="container">
+		<div class="container main">
 			<div class="heading">
 				<h1>Login</h1>
 			</div>
@@ -49,7 +48,6 @@
 				<h4>${reg_complete_msg}</h4>	 	
 			</div>
 		</div>
-	</div>
 	<%@ include file="footer.jsp" %>
 </body>
 </html>

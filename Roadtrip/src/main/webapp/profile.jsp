@@ -13,7 +13,6 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<div class="body">
 	<%! static void printInCell(JspWriter out, String a) throws IOException {
 			out.print("<div class=\"col-lg-2\">");
 				out.print(a);
@@ -37,7 +36,7 @@
 				.getProfile().getPerson() instanceof Driver;
 	%>
 
-	<div class="container">
+	<div class="container main">
 		<div class="heading">
 			<h1>My Profile:</h1>
 		</div>
@@ -99,7 +98,6 @@
 					съответстващата им обява. Май тр да се сложат вътре ??  -->
 			</div>
 		</div>
-	</div>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>
