@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-
+	<div class="body">
 	<%! static void printInCell(JspWriter out, String a) throws IOException {
 			out.print("<div class=\"col-lg-2\">");
 				out.print(a);
@@ -37,48 +37,53 @@
 				.getProfile().getPerson() instanceof Driver;
 	%>
 
-	<div id="welcome" class="container">
-		<h1>My Profile:</h1>
-		<hr>
-		<div class="text-success">
+	<div class="container">
+		<div class="heading">
+			<h1>My Profile:</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-6">
+				<%
+					if (isDriver) {
+				%>
+				<%@ include file="driver-info.jsp"%>
+				<%
+					} else {
+				%>
+				<%@ include file="passanger-info.jsp"%>
+				<%
+					}
+				%>
+			
+	
+				<form method="GET" action="profile/profileEdit" class="form-horizontal">
+					<input type="submit" value="Edit Profile" class="btn btn-info"/>
+				</form>
+			</div>
+		
+			<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
+			<div class="col-xs-6">
 			<%
 				if (isDriver) {
-			%>
-			<%@ include file="driver-info.jsp"%>
-			<%
-				} else {
-			%>
-			<%@ include file="passanger-info.jsp"%>
-			<%
-				}
-			%>
-		</div>
-
-		<form method="GET" action="profile/profileEdit" class="form-horizontal">
-			<input type="submit" value="Edit Profile" class="btn btn-info"/>
-		</form>
-		
-		<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
-		<%
-			if (isDriver) {
-				List<Trip> listOfTrips = (List<Trip>) (request
-						.getAttribute("tripsList"));
-
-				out.print("<div class=\"row\">"
-						+ "<div class=\"col-lg-2\">From</div>"
-						+ "<div class=\"col-lg-2\">To</div>"
-						+ "<div class=\"col-lg-2\">Depature time</div>"
-						+ "<div class=\"col-lg-2\">Free places</div>"
-						+ "</div>");
-
-				for (Trip trip : listOfTrips) {
-					printAnAdvertisment(out, trip);
-				}
-			}
-		%>
-
-	</div>
+					List<Trip> listOfTrips = (List<Trip>) (request
+							.getAttribute("tripsList"));
 	
+					out.print("<table class=\"table\"><caption> List of trips: </caption><thead><tr>"
+							+ "<th>From</th>"
+							+ "<th>To</th>"
+							+ "<th>Depature time</th>"
+							+ "<th>Free places</th>"
+							+ "</tr></thead></table>");
+	
+					for (Trip trip : listOfTrips) {
+						printAnAdvertisment(out, trip);
+					}
+				}
+			%>
+			</div>
+		</div>
+	</div>
+	</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

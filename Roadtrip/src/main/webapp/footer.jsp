@@ -5,9 +5,9 @@
 <title>Road trip</title>
 </head>
 <body>
-	<div id="Footer" class="jumbotron">
-		<p class="text-info">Road trip: 2015</p>
-		<p class="text-info">JavaEE project</p>
+	<div class="navbar-default navbar-fixed-bottom text-right">
+		<span class="text-muted">JAVA EE Road trip - 2015 project</span>
+		<img src = "${pageContext.request.contextPath}/images/logo-sbo.png">
 	</div>
 </body>
 </html>

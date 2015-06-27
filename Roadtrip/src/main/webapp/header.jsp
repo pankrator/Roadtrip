@@ -9,7 +9,8 @@
 	<title>Road trip</title>
 </head>
 <body>
-	<div class="navbar navbar-default">
+	<nav class="navbar navbar-default">
+	<div class="container">
 	  <div class="navbar-header">
 	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
 	      <span class="icon-bar"></span>
@@ -25,7 +26,7 @@
 	    	<li><a href="about.jsp">About Us</a></li>
 			<li><a href="history.jsp">History</a></li>
 	    </ul>
-	    <ul class="nav navbar-nav pull-right">
+	    <ul class="nav navbar-nav navbar-right">
 	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
 				<li><a href="statistics">Statistics</a></li>
 				<li><a href="profile" class="text-info">My Profile</a></li>
@@ -37,5 +38,6 @@
 	    </ul>
 		</div>
 	  </div>	
+	  </nav>
 </body>
 </html>
