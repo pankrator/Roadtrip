@@ -61,7 +61,7 @@
 				</form>
 			</div>
 		
-			<!-- HERE TO PRINT USER'S ADVERTISEMENT !!! -->
+			<!-- HERE TO PRINT USER'S TRIPS -->
 			<div class="col-xs-6">
 			<%
 				if (isDriver) {
@@ -77,9 +77,26 @@
 	
 					for (Trip trip : listOfTrips) {
 						printAnAdvertisment(out, trip);
-					}
+			%>
+						<form method="GET" action="trip/editTrip" class="form-horizontal">
+							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
+							<input type="submit" value="Edit Trip" class="btn btn-warning"/>
+						</form>
+				
+						<form method="POST" action="trip/deleteTrip" class="form-horizontal">
+							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
+							<input type="submit" value="Delete Trip" class="btn btn-danger"/>
+						</form>
+			<% 
+					} // end for loop
 				}
 			%>
+			
+			<!-- ЗАБЕЛЕЖКА: 
+					методът printAnAdvertisment() принти всяка обява в отделен <div>
+					обаче за всяка обява трябва да има 1 бутон Edit и 1 бутон Delete
+					те са съответно във формичките във for цикъла, обаче НЕ влизат в <div>-а на
+					съответстващата им обява. Май тр да се сложат вътре ??  -->
 			</div>
 		</div>
 	</div>

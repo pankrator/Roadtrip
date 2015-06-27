@@ -129,4 +129,66 @@ public class TripController {
 	
 	
 	
+	
+	@GET
+	@Path("/editTrip") // no actual edit -> just forward
+	@Produces("application/json")
+	public void getEditTripPage(@Context HttpServletRequest request, @Context HttpServletResponse response,
+			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+		
+		System.out.println("trip id is: " + tripId);
+		
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/tripEdit.jsp");
+		
+		request.setAttribute("tripId", tripId);
+		
+		Trip trip = new Trip();
+		trip = tripService.getTripById(tripId);
+		
+		request.setAttribute("tripToEdit", trip);
+		
+		rd.forward(request, response);
+	}
+	
+	
+	// handles request from tripEdit page; actual editing
+	@POST
+	@Path("/submitTripChanges")
+	@Consumes("application/x-www-form-urlencoded")
+	public void createTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
+			@FormParam(value="freePlaces") int freePlaces, 
+			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+		
+		System.out.println("free places: " + freePlaces);
+		System.out.println("tripId: " + tripId);
+		
+		//TODO: validate input data
+		
+		Trip trip = tripService.getTripById(tripId);
+		trip.setFreePlaces(freePlaces);
+		
+		//TODO: Update DB
+		
+	}
+	
+	
+	@POST
+	@Path("/deleteTrip")
+	@Consumes("application/x-www-form-urlencoded")
+	public void deleteTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
+			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+		
+		System.out.println("Trip id is: " + tripId);
+		
+		RequestDispatcher rd = null;
+		
+		Trip trip = tripService.getTripById(tripId);
+		tripService.deleteTrip(trip);
+		
+		rd = request.getRequestDispatcher("/profile.jsp");
+		rd.forward(request, response);		
+	}
+	
+	
 }

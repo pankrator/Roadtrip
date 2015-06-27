@@ -23,8 +23,15 @@ public class TripService {
 		return tripDAO.save(trip);
 	}
 	
-	
 	public List<Trip> findMatchingTrips(Trip trip){
 		return tripDAO.findTripsByTownsAndDate(trip);
+	}
+	
+	public Trip getTripById(String id) {
+		return tripDAO.find(Long.parseLong(id));
+	}
+	
+	public void deleteTrip(Trip trip) {
+		tripDAO.remove(trip);
 	}
 }
