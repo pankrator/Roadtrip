@@ -1,5 +1,15 @@
 <!DOCTYPE html>
+<%@page import="slbedu.library.model.Driver"%>
 <%@page import="slbedu.library.context.UserContext"%>
+<%
+	UserContext context	= (UserContext)(request.getAttribute("context"));
+	boolean isUserLoggedIn = context.getProfile() != null;
+	String homePagePath = "/trip/tripSearch";
+	if(isUserLoggedIn &&	context.getProfile().getPerson() instanceof Driver)
+	{
+		homePagePath = "/trip/driverMainPage";
+	}
+%>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -22,12 +32,13 @@
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
-	    	<li><a href="trip">Home</a></li>
+	    	<li><a href="<%=homePagePath%> " >Home</a></li>
 	    	<li><a href="about.jsp">About Us</a></li>
 			<li><a href="history.jsp">History</a></li>
 	    </ul>
+
 	    <ul class="nav navbar-nav navbar-right">
-	    <% if (((UserContext)(request.getAttribute("context"))).getProfile() != null) { %>
+	    <% if (isUserLoggedIn) { %>
 				<li><a href="statistics">Statistics</a></li>
 				<li><a href="profile" class="text-info">My Profile</a></li>
 				<li><form method="GET" action="logout">

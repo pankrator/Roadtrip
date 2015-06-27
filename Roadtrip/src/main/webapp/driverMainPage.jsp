@@ -29,13 +29,13 @@
 	<%@ include file="header.jsp" %>
 	<div id="welcome" class="container">
 		<div>
-			<img src = "${pageContext.request.contextPath}/images/driver/driverImg.gif" >
-			<img src = "${pageContext.request.contextPath}/images/passenger/passengerImg.jpg">
+			<img src = "${pageContext.request.contextPath}/images/driverImg.gif" >
+			<img src = "${pageContext.request.contextPath}/images//passengerImg.jpg">
 		</div>
 		
 		<div>
-			<a href="trip.jsp"><img src = "${pageContext.request.contextPath}/images/driver/driverLogo.png" class="arrows"></a>
-			<a href="tripSearch.jsp"><img src = "${pageContext.request.contextPath}/images/passenger/passengerLogo.png" class="arrows"></a>
+			<a href="trip/trip"><img src = "${pageContext.request.contextPath}/images/driverLogo.png" class="arrows"></a>
+			<a href="trip/tripSearch"><img src = "${pageContext.request.contextPath}/images/passengerLogo.png" class="arrows"></a>
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>

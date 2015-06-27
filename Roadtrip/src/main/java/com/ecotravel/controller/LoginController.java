@@ -18,6 +18,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 
+import slbedu.library.context.UserContext;
+import slbedu.library.model.Driver;
+import slbedu.library.model.Person;
 import slbedu.library.services.AuthenticationService;
 
 @Stateless
@@ -27,6 +30,8 @@ public class LoginController {
 	@Inject
     private AuthenticationService authenticationService;
 	
+	@Inject
+	private UserContext context;
 //	@GET
 //	@Produces("application/json")
 //	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
@@ -48,13 +53,19 @@ public class LoginController {
 		
 		if (isAuthenticated) {
 //			rd = request.getRequestDispatcher("/profile.jsp");
-			response.sendRedirect(request.getContextPath() + "/profile");
+			Person person = context.getProfile().getPerson();
+			if(person instanceof Driver){
+				rd = request.getRequestDispatcher("/driverMainPage.jsp");
+			}
+			else{
+				rd = request.getRequestDispatcher("/tripSearch.jsp");
+			}
 		} else {
 			request.setAttribute("login_error", "Wrong username/password!");
 			
 			rd = request.getRequestDispatcher("/index.jsp");
-			rd.forward(request, response);
 		}
 		
+		rd.forward(request, response);
 	}
 }

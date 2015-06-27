@@ -50,7 +50,6 @@ public class AuthenticationFilter implements Filter {
         boolean needsAuth = needsAuthentication(requestedPath);
         
         request.setAttribute("context", context);
-        
         if (needsAuth && context.getProfile() == null) {
 //        	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
 //        	rd.forward(request, response);
