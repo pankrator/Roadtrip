@@ -11,7 +11,7 @@
 	<caption>Personal Information</caption>
 	<thead>
 	<tr>
-		<th>Name: </th>
+		<td><strong>Name: </strong></td>
 		<td><strong><% out.print(profile.getPerson().getName()); %></strong></td>
 	</tr>
 	</thead>
@@ -57,17 +57,3 @@
 	</tr>
 
 </table>
-
-<%--
-<p>Name:  <p>
-<p>Username: <% out.print(profile.getUsername()); %> </p>
-<p>Year of birth: <% out.print(profile.getPerson().getBirthYear()); %></p>
-<p>E-mail: <% out.print(profile.getEmail()); %></p>
-<p>Phone: <% out.print(profile.getPerson().getTelephone()); %> </p>
-<p>Driving License: Yes</p>
-<p>License year: <% out.print(driver.getLicenseYear()); %></p>
-<p>Is smoking in car allowed: <% out.print(driver.isSmoking()); %></p>
-<p>Music: <% out.print(driver.getMusicInTheCar()); %></p>
-<p>Number of travels: <% out.print(driver.getNumberOfTravels()); %></p>
-<p>Rating: </p>
- --%>

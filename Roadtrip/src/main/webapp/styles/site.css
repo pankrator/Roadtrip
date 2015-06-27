@@ -59,6 +59,6 @@ form[action="logout"] {
 	border-bottom: 1px solid #e7e7e7;
 }
 
-.login {
+.login, .tripForm {
 	padding-top: 20px;
 }

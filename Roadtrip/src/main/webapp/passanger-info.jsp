@@ -7,10 +7,37 @@
 	Passenger passenger = (Passenger)profile.getPerson();
 %>
 
-<p>Name: <strong><% out.print(profile.getPerson().getName()); %></strong> <p>
-<p>Username: <% out.print(profile.getUsername()); %> </p>
-<p>Year of birth: <% out.print(profile.getPerson().getBirthYear()); %></p>
-<p>E-mail: <% out.print(profile.getEmail()); %></p>
-<p>Phone: <% out.print(profile.getPerson().getTelephone()); %> </p>
-<p>Driving License: No</p>
-<p>Rating: <% out.print(passenger.getRating()); %></p>
+<table class="table">
+	<caption>Personal Information</caption>
+	<thead>
+	<tr>
+		<td><strong>Name: </strong></td>
+		<td><strong><% out.print(profile.getPerson().getName()); %></strong></td>
+	</tr>
+	</thead>
+	<tr>
+		<th>Username: </th>
+		<td><% out.print(profile.getUsername()); %></td>
+	</tr>
+	<tr>
+		<th>Year of birth:</th>
+		<td><% out.print(profile.getPerson().getBirthYear()); %></td>
+	</tr>
+	<tr>
+		<th>E-mail: </th>
+		<td><% out.print(profile.getEmail()); %></td>
+	</tr>
+	<tr>
+		<th>Phone: </th>
+		<td><% out.print(profile.getPerson().getTelephone()); %></td>
+	</tr>
+	<tr>
+		<th>Driving License: </th>
+		<td>Yes</td>
+	</tr>
+	<tr>
+		<th>Rating: </th>
+		<td><% out.print(passenger.getRating()); %></td>
+	</tr>
+
+</table>

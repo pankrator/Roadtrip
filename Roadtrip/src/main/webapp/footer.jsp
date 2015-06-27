@@ -5,8 +5,8 @@
 <title>Road trip</title>
 </head>
 <body>
-	<div class="navbar-default navbar-fixed-bottom text-right">
-		<span class="text-muted">JAVA EE Road trip - 2015 project</span>
+	<div class="navbar-default navbar-fixed-bottom text-center">
+		<span class="text-muted">JAVA EE Road trip project</span>
 		<img src = "${pageContext.request.contextPath}/images/logo-sbo.png">
 	</div>
 </body>
