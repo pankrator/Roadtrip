@@ -34,4 +34,8 @@ public class TripService {
 	public void deleteTrip(Trip trip) {
 		tripDAO.remove(trip);
 	}
+	
+	public Trip editTrip(Trip trip) {
+		return tripDAO.save(trip);
+	}
 }

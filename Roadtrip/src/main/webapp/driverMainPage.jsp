@@ -34,7 +34,7 @@
 		</div>
 		
 		<div>
-			<a href="trip/trip"><img src = "${pageContext.request.contextPath}/images/driverLogo.png" class="arrows"></a>
+			<a href="trip"><img src = "${pageContext.request.contextPath}/images/driverLogo.png" class="arrows"></a>
 			<a href="trip/tripSearch"><img src = "${pageContext.request.contextPath}/images/passengerLogo.png" class="arrows"></a>
 		</div>
 	</div>
