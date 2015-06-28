@@ -38,7 +38,6 @@ public class TripController {
 	
 	@GET
 	@Produces("application/json")
-	//@Path("/trip") // tr da se mahne shtoto s nego putqt kum trip e Roadtrip/trip/trip, a ne Roadtrip/trip
 	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		rd = request.getRequestDispatcher("/trip.jsp");
@@ -165,16 +164,13 @@ public class TripController {
 		
 		//TODO: validate input data
 		
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/profile.jsp");
-		
 		Trip trip = tripService.getTripById(tripId);
 		trip.setFreePlaces(freePlaces);
 		
 		// Update DB:
 		tripService.editTrip(trip);
 		
-		rd.forward(request, response);
+		response.sendRedirect("/Roadtrip/profile");
 	}
 	
 	
@@ -185,8 +181,6 @@ public class TripController {
 			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
 		
 		System.out.println("Trip id is: " + tripId);
-		
-		RequestDispatcher rd = null;
 		
 		Trip trip = tripService.getTripById(tripId);
 		tripService.deleteTrip(trip);
