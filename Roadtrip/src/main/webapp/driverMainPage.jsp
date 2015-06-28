@@ -3,34 +3,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/site.css">
 <title>Road trip</title>
-<style>
-	body {
-		padding-top: 40px;
-		text-align: center;
-	}
-	img {
-		padding: 50px;
-		width: 300px;
-		height: 300px;
-	}
-	.arrows {
-		padding: 10px;
-		width: 30%;
-		height: 30%;
-	}
-	body {
-		/* 
-		background-color: limegreen;*/
-	}
-</style>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div id="welcome" class="container">
+	<div class="container main text-center">
 		<div>
-			<img src = "${pageContext.request.contextPath}/images/driverImg.gif" >
-			<img src = "${pageContext.request.contextPath}/images//passengerImg.jpg">
+			<img class="driverImg" src = "${pageContext.request.contextPath}/images/driverImg.gif" >
+			<img class="driverImg" src = "${pageContext.request.contextPath}/images//passengerImg.jpg">
 		</div>
 		
 		<div>

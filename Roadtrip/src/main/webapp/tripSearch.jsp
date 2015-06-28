@@ -15,37 +15,45 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div id="welcome" class="container">
-		<div class="jumbotron"><h1>Search For Advertisements</h1></div>
-		<form method="GET" action="trip/searchTrip">
-			<div class="form-group">
-				<label for="fromCity" class="col-md-2 control-label">From:</label> 
-				<div class="col-md-10">
-					<select id="fromCity" name="fromCity" class="form-control">
-						<% TownsContainer.printTownsInSelectMenu(out);	%>
-					</select>
+	<div id="welcome" class="container main">
+		<div class="heading">
+			<h1>Search For Advertisements</h1>
+		</div>
+		<div class="searchTrip">
+			<form method="GET" action="trip/searchTrip" class="form-horizontal">
+				<div class="form-group">
+					<label for="fromCity" class="col-md-2 control-label">From:</label> 
+					<div class="col-md-10">
+						<select id="fromCity" name="fromCity" class="form-control">
+							<% TownsContainer.printTownsInSelectMenu(out);	%>
+						</select>
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="toCity" class="col-md-2 control-label">To:</label> 
-				<div class="col-md-10">
-					<select id="toCity" name="toCity" class="form-control">
-						<% TownsContainer.printTownsInSelectMenu(out);	%>
-					</select>
+				<div class="form-group">
+					<label for="toCity" class="col-md-2 control-label">To:</label> 
+					<div class="col-md-10">
+						<select id="toCity" name="toCity" class="form-control">
+							<% TownsContainer.printTownsInSelectMenu(out);	%>
+						</select>
+					</div>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="date" class="col-md-2 control-label">Date:</label> 
-				<div class="col-md-10">
-					<input id="date" type="date" name="date" required="required" class="form-control">
+				<div class="form-group">
+					<label for="date" class="col-md-2 control-label">Date:</label> 
+					<div class="col-md-10">
+						<input id="date" type="date" name="date" required="required" class="form-control">
+					</div>
 				</div>
-			</div>
-			
-	  		<input type="submit" value="Search!" class="btn btn-primary">
-		</form>
+				<div class="form-group">
+					<div class="col-md-4">
+						<input type="submit" value="Search!" class="btn btn-primary">
+					</div>
+				</div>
+			</form>
+		</div>
 		
 		<h3>${searching_msg}</h3>
 		<h3>${email_sent_msg}</h3>
+		
 	</div>
 	
 	<%@ include file="footer.jsp" %>	
