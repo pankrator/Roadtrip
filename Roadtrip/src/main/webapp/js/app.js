@@ -1,0 +1,1 @@
+var baseServiceUrl = "http://localhost:8080/Roadtrip/";

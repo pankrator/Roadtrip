@@ -15,6 +15,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
 import slbedu.library.context.UserContext;
@@ -53,6 +54,14 @@ public class ProfileController {
 		
 		rd.forward(request, response);
 	}
+	
+//	@GET
+//	public void viewProfile(@Context HttpServletRequest request, 
+//							@Context HttpServletResponse response,
+//							@QueryParam("id") Long id) {
+//		profileService.
+//		Profile profile = 
+//	}
 	
 	
 	

@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<th>Is smoking in car allowed: </th>
-		<td><% out.print(driver.isSmoking()); %></td>
+		<td><% out.print(driver.isSmoking() ? "Yes" : "No"); %></td>
 	</tr>
 	<tr>
 		<th>Music: </th>

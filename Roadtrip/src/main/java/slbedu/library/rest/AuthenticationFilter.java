@@ -25,9 +25,11 @@ public class AuthenticationFilter implements Filter {
 	
 	private static List<String> normalPaths = new ArrayList<String>(Arrays.asList(
 		"/Roadtrip/",
+		"/Roadtrip/images/.*",
+		"/Roadtrip/js/.*",
+		"/Roadtrip/styles/.*",
 		"/Roadtrip/login",
 		"/Roadtrip/register",
-		"/Roadtrip/styles/.*",
 		"/Roadtrip/register/.*"
 	));
 

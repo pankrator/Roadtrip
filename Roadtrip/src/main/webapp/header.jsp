@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap-theme.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/site.css">
+	<script src="${pageContext.request.contextPath}/js/jquery-2.1.3.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/app.js"></script>
 	<title>Road trip</title>
 </head>
 <body>

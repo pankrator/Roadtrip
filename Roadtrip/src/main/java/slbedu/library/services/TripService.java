@@ -27,8 +27,8 @@ public class TripService {
 		return tripDAO.findTripsByTownsAndDate(trip);
 	}
 	
-	public Trip getTripById(String id) {
-		return tripDAO.find(Long.parseLong(id));
+	public Trip getTripById(Long id) {
+		return tripDAO.find(id);
 	}
 	
 	public void deleteTrip(Trip trip) {

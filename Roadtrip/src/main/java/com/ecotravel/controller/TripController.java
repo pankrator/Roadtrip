@@ -130,7 +130,7 @@ public class TripController {
 	@Path("/editTrip") // no actual edit -> just forward
 	@Produces("application/json")
 	public void getEditTripPage(@Context HttpServletRequest request, @Context HttpServletResponse response,
-			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+			@FormParam(value="tripId") Long tripId) throws ServletException, IOException {
 		
 		System.out.println("trip id is: " + tripId);
 		
@@ -154,7 +154,7 @@ public class TripController {
 	@Consumes("application/x-www-form-urlencoded")
 	public void createTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			@FormParam(value="freePlaces") int freePlaces, 
-			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+			@FormParam(value="tripId") Long tripId) throws ServletException, IOException {
 		
 		System.out.println("free places: " + freePlaces);
 		System.out.println("tripId: " + tripId);
@@ -175,7 +175,7 @@ public class TripController {
 	@Path("/deleteTrip")
 	@Consumes("application/x-www-form-urlencoded")
 	public void deleteTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
-			@FormParam(value="tripId") String tripId) throws ServletException, IOException {
+			@FormParam(value="tripId") Long tripId) throws ServletException, IOException {
 		
 		System.out.println("Trip id is: " + tripId);
 		
@@ -192,8 +192,9 @@ public class TripController {
 	@Path("/subscribeForTrip")
 	@Consumes("application/x-www-form-urlencoded")
 	public void subscribeForTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
-			@FormParam(value="driver") Driver driver) throws ServletException, IOException {
-		
+			@FormParam(value="tripId") Long tripId) throws ServletException, IOException {
+		Trip trip = tripService.getTripById(tripId);
+		Driver driver = trip.getDriver();
 		Profile driverProfile = profileService.getProfileByPerson(driver);
 		String driverEmail = driverProfile.getEmail();
 		
