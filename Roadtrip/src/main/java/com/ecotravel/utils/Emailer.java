@@ -12,7 +12,7 @@ public class Emailer {
 	private Session session;
 	
 	public Emailer() {
-		this.username = "roadtriptrop";//"ittallentsproject";
+		this.username = "roadtriptrop";
 		this.password = "road_trip";
 		configureProperties(true, true, "smtp.gmail.com", 587);
 		configureSession(getUsername(), getPassword());

@@ -1,6 +1,7 @@
 package com.ecotravel.controller;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,6 +21,7 @@ import slbedu.library.model.Driver;
 import slbedu.library.model.Passenger;
 import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
+import slbedu.library.services.MailSender;
 import slbedu.library.services.RegisterService;
 
 import com.ecotravel.enums.PersonType;
@@ -30,6 +32,9 @@ public class RegisterController {
 	
 	@Inject 
 	private RegisterService regService;
+	
+	@Inject
+	private MailSender mailSender;
 	
 	@GET
 	@Produces("application/json")
@@ -87,5 +92,27 @@ public class RegisterController {
 		}
 		
 		rd.forward(request, response);		
+	}
+	
+	@Path("/forgottenPassword")
+	public void forgottenPassword(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException, URISyntaxException {
+		RequestDispatcher rd = null;
+			
+		
+		rd = request.getRequestDispatcher("/forgottenPassword.jsp");
+		rd.forward(request, response);
+	}
+	
+	@POST
+	@Path("/resetPassword")
+	public void resetPassword(@Context HttpServletRequest request, @Context HttpServletResponse response,
+					@FormParam(value="username") String username) throws ServletException, IOException, URISyntaxException {
+		RequestDispatcher rd = null;
+		
+		if(username == null){
+			return;
+		}
+		mailSender.sendMessage(username);
+		response.sendRedirect(request.getContextPath());
 	}
 }

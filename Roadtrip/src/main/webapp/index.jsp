@@ -31,7 +31,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-5 col-sm-10">
-							<a id="forgottenPassword" href="ForgottenPassword" class="text-danger">Forgotten password</a>
+							<a id="forgottenPassword" href="${pageContext.request.contextPath}/register/forgottenPassword" class="text-danger">Forgotten password</a>
 						</div>
 						<div class="col-sm-offset-5 col-sm-10">
 							<a id="registerForm" href="register" class="text-info">Create new account</a>

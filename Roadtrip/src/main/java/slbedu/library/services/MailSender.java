@@ -1,7 +1,8 @@
-package com.ecotravel.utils;
+package slbedu.library.services;
 
 import java.util.Properties;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,12 +11,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.ecotravel.utils.Emailer;
+import com.ecotravel.utils.RandomStringGenerator;
+
 import slbedu.library.dao.ProfileDAO;
 import slbedu.library.model.Profile;
 
+@Stateless
 public class MailSender {
+	
 	@Inject
-	ProfileDAO profileDao;
+	private ProfileDAO profileDao;
+	
 	private Emailer emailer = new Emailer();
 	private Session session = emailer.getSession();
 	private Properties props = emailer.getProps();
@@ -66,12 +73,12 @@ public class MailSender {
 	private void configurateAndTransportMessage(String email, String emailText){
 		try{
 			this.message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("ittallentsproject@gmail.com"));
+			message.setFrom(new InternetAddress("roadtriptrop@gmail.com"));
 			message.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse(email));
 			message.setSubject(subject);
 			message.setText(emailText);
-			Transport.send(message);;
+			Transport.send(message);
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}

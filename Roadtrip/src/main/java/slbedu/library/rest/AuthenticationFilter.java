@@ -29,7 +29,8 @@ public class AuthenticationFilter implements Filter {
 		"/Roadtrip/",
 		"/Roadtrip/login",
 		"/Roadtrip/register",
-		"/Roadtrip/styles/.*"
+		"/Roadtrip/styles/.*",
+		"/Roadtrip/register/.*"
 	));
 
 	@Inject
