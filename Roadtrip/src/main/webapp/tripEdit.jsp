@@ -18,7 +18,7 @@
 		<% out.print("Trip id is: " + request.getAttribute("tripId")); %><!-- to be DELETED -->
 		
 		<div>
-			<form method="POST" action="submitTripChanges" class="form-horizontal">
+			<form method="POST" action="${pageContext.request.contextPath}/trip/submitTripChanges" class="form-horizontal">
 				
 			<%! static void printInCell(JspWriter out, String a) throws IOException {
 					out.print("<div class=\"col-lg-1\">");

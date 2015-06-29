@@ -81,7 +81,9 @@ public class RegisterController {
 			
 			regService.register(profile, person);
 			
-			rd = request.getRequestDispatcher("/login.jsp");
+//			rd = request.getRequestDispatcher("/login.jsp");
+			response.sendRedirect(request.getContextPath());
+			return;
 		}
 		
 		rd.forward(request, response);		

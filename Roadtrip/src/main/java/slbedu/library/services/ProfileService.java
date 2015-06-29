@@ -17,13 +17,11 @@ public class ProfileService {
 	
 	public Profile editProfile(Profile profile, Person person) {
 		personDao.save(person);
-//		person = personDao.updatePerson(person);
 		profile.setPerson(person);
 		
 		profileDao.save(profile);
 		
 		return profile;
-//		return profileDao.updateProfile(profile.getUsername(), profile.getPassword());
 	}
 
 }

@@ -4,10 +4,10 @@
 <%
 	UserContext context	= (UserContext)(request.getAttribute("context"));
 	boolean isUserLoggedIn = context.getProfile() != null;
-	String homePagePath = "/trip/tripSearch";
-	if(isUserLoggedIn &&	context.getProfile().getPerson() instanceof Driver)
+	String homePagePath = request.getContextPath() + "/trip/tripSearch";
+	if(isUserLoggedIn && context.getProfile().getPerson() instanceof Driver)
 	{
-		homePagePath = "/trip/driverMainPage";
+		homePagePath = request.getContextPath() + "/trip";
 	}
 %>
 <html>
@@ -32,16 +32,16 @@
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
-	    	<li><a href="<%=homePagePath%> " >Home</a></li>
-	    	<li><a href="about.jsp">About Us</a></li>
-			<li><a href="history.jsp">History</a></li>
+	    	<li><a href="<%=homePagePath%>">Home</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/about.jsp">About Us</a></li>
+			<li><a href="${pageContext.request.contextPath}/history.jsp">History</a></li>
 	    </ul>
 
 	    <ul class="nav navbar-nav navbar-right">
 	    <% if (isUserLoggedIn) { %>
-				<li><a href="statistics">Statistics</a></li>
-				<li><a href="profile" class="text-info">My Profile</a></li>
-				<li><form method="GET" action="logout">
+				<li><a href="${pageContext.request.contextPath}/statistics">Statistics</a></li>
+				<li><a href="${pageContext.request.contextPath}/profile" class="text-info">My Profile</a></li>
+				<li><form method="GET" action="${pageContext.request.contextPath}/logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />
 				</form>
 				</li>

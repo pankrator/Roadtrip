@@ -77,12 +77,12 @@
 					for (Trip trip : listOfTrips) {
 						printAnAdvertisment(out, trip);
 			%>
-						<form method="GET" action="trip/editTrip" class="form-horizontal">
+						<form method="GET" action="${pageContext.request.contextPath}/trip/editTrip" class="form-horizontal">
 							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
 							<input type="submit" value="Edit Trip" class="btn btn-warning"/>
 						</form>
 				
-						<form method="POST" action="trip/deleteTrip" class="form-horizontal">
+						<form method="POST" action="${pageContext.request.contextPath}/trip/deleteTrip" class="form-horizontal">
 							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
 							<input type="submit" value="Delete Trip" class="btn btn-danger"/>
 						</form>

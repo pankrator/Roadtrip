@@ -20,7 +20,6 @@ import javax.ws.rs.core.Context;
 import slbedu.library.context.UserContext;
 import slbedu.library.model.Driver;
 import slbedu.library.model.Passenger;
-import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
 import slbedu.library.model.Trip;
 import slbedu.library.services.ProfileService;
@@ -80,18 +79,6 @@ public class ProfileController {
 			 @FormParam(value="telephone") String telephone,
 			 @FormParam(value="password") String password,
 			 @FormParam(value="rePassword") String password2) throws ServletException, IOException {
-
-		// just to be sure we get all parameters correctly
-		System.out.println(name);
-		System.out.println(birthYear);
-		System.out.println(telephone);
-		System.out.println(password);
-		System.out.println(password2);
-		System.out.println("IN PROFILE_EDIT_PASSENGER CONTROLLER");
-		
-		// TODO: 
-		// validate parameters
-		// set error messages -> request.setAttribute()
 		
 		RequestDispatcher rd = null;
 		
@@ -100,17 +87,17 @@ public class ProfileController {
 			rd = request.getRequestDispatcher("/profileEdit.jsp");
 			rd.forward(request, response);
 		} else {
-			Person person = new Passenger();
+			Profile profile = context.getProfile();
+			Passenger person = (Passenger)profile.getPerson();
 			person.setName(name);
 			person.setBirthYear(birthYear);
 			person.setTelephone(telephone);
 			
-			Profile profile = new Profile();
 			profile.setPassword(password);
 		
 			profileService.editProfile(profile, person);
 			
-			response.sendRedirect("/Roadtrip/profile"); 
+			response.sendRedirect(request.getContextPath() + "/profile"); 
 		}
 
 	}
@@ -129,20 +116,6 @@ public class ProfileController {
 			 @FormParam(value="isSmoking") String smoking,
 			 @FormParam(value="musicInTheCar") String music) throws ServletException, IOException {
 		
-		// just to be sure we get all parameters correctly
-		System.out.println(name);
-		System.out.println(birthYear);
-		System.out.println(telephone);
-		System.out.println(password);
-		System.out.println(password2);
-		System.out.println(smoking);
-		System.out.println(music);
-		System.out.println("IN PROFILE_EDIT_DRIVER CONTROLLER");
-		
-		// TODO: 
-		// validate parameters
-		// set error messages -> request.setAttribute()
-		
 		RequestDispatcher rd = null;
 		
 		if (!password.equals(password2)) {
@@ -156,17 +129,18 @@ public class ProfileController {
 			person.setBirthYear(birthYear);
 			person.setTelephone(telephone);
 			person.setMusicInTheCar(music);
-//			person.setSmoking(smoking);
+			
+			if (smoking == "Yes") {
+				person.setSmoking(true);
+			} else {
+				person.setSmoking(false);
+			}
 			
 			profile.setPassword(password);
 			
-			// TODO:
-			// set isSmoking ???
-			// set music ???
-			
 			profileService.editProfile(profile, person);
 			
-			response.sendRedirect("/Roadtrip/profile"); 
+			response.sendRedirect(request.getContextPath() + "/profile"); 
 		}
 		
 	}

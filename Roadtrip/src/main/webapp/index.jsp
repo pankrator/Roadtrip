@@ -15,7 +15,7 @@
 			</div>
 			
 			<div class="login">
-				<form method="POST" class="form-horizontal" action="login">
+				<form method="POST" class="form-horizontal" action="${pageContext.request.contextPath}/login">
 					<div class="form-group">
 						<label for="username" class="col-md-2 control-label">Username:</label>
 						<div class="col-md-10">

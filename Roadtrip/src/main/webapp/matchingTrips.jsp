@@ -62,7 +62,7 @@
 				for(Trip a : matchingTrips) 
 					{%>
 						<div class="row trip-row" class="child_div_1">
-							<form action="ViewDriversProfile" method="GET">
+							<form action="${pageContext.request.contextPath}/ViewDriversProfile" method="GET">
 								<div class="col-lg-1">
 									<input type="hidden" name="driverUsername" value=<%=a.getDriver().getName()%> />
 									<input type="submit"class="btn btn-warning" value="View Driver Profile"/></div>

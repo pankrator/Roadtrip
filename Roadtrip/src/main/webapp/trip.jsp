@@ -15,7 +15,7 @@
 			<h1>Create Your Trip</h1>
 		</div>	
 		<div class="tripForm">	
-			<form method="POST" action="trip" class="form-horizontal">
+			<form method="POST" action="${pageContext.request.contextPath}/trip" class="form-horizontal">
 				<div class="form-group">
 					<label for="fromCity" class="col-md-2 control-label">From:</label> 
 					<div class="col-md-10">

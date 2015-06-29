@@ -34,7 +34,7 @@
 		
 		<div class="editForm">
 			<form id="editForm" method="POST" 
-				action=" <% if(isDriver) out.print("profileEditDriver"); 
+				action="${pageContext.request.contextPath}/profile/<% if(isDriver) out.print("profileEditDriver"); 
 							else out.print("profileEditPassenger"); %>">
 				<div class="form-group" id="nameField">
 					<label class="control-label" for="name">Name:</label>

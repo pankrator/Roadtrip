@@ -74,11 +74,6 @@ public class TripController {
 					 @FormParam(value="time") String time,
 					 @FormParam(value="freePlaces") int freePlaces) throws ServletException, IOException {
 		
-//		System.out.println(date);
-//		System.out.println(time);
-		
-		RequestDispatcher rd = null;
-		
 		Trip trip = new Trip();
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm");
@@ -106,8 +101,11 @@ public class TripController {
 	public void searchTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			 @QueryParam(value="fromCity") String fromCity,
 			 @QueryParam(value="toCity") String toCity,
-			 @QueryParam(value="date") Date date) throws ServletException, IOException {
+			 @QueryParam(value="date") String dateString) throws ServletException, IOException, ParseException {
 		RequestDispatcher rd = null;
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		Date date = formatter.parse(dateString);
 		
 		Trip trip = new Trip();
 //		trip.setDepartureTime(date);
@@ -166,11 +164,11 @@ public class TripController {
 		
 		Trip trip = tripService.getTripById(tripId);
 		trip.setFreePlaces(freePlaces);
-		
+	
 		// Update DB:
 		tripService.editTrip(trip);
 		
-		response.sendRedirect("/Roadtrip/profile");
+		response.sendRedirect(request.getContextPath() + "/profile");
 	}
 	
 	
@@ -187,7 +185,7 @@ public class TripController {
 		
 		System.out.println("trip " + tripId + " deleted.");
 		
-		response.sendRedirect("/Roadtrip/profile");
+		response.sendRedirect(request.getContextPath() + "/profile");
 	}
 	
 }

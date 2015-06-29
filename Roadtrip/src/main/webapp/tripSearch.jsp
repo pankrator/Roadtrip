@@ -20,7 +20,7 @@
 			<h1>Search For Advertisements</h1>
 		</div>
 		<div class="searchTrip">
-			<form method="GET" action="trip/searchTrip" class="form-horizontal">
+			<form method="GET" action="${pageContext.request.contextPath}/trip/searchTrip" class="form-horizontal">
 				<div class="form-group">
 					<label for="fromCity" class="col-md-2 control-label">From:</label> 
 					<div class="col-md-10">

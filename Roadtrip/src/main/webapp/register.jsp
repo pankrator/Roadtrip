@@ -8,7 +8,7 @@
 
 	<%@ include file="header.jsp" %>
 	<div class="container">
-		<form id="registerForm" method="POST" action="" class="form-horizontal">
+		<form id="registerForm" method="POST" action="${pageContext.request.contextPath}/register" class="form-horizontal">
 			<div class="form-group" id="nameField">
 				<label class="control-label" for="name">Name:</label>
 				<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
