@@ -23,7 +23,10 @@ import javax.ws.rs.core.Context;
 
 import slbedu.library.context.UserContext;
 import slbedu.library.model.Driver;
+import slbedu.library.model.Profile;
 import slbedu.library.model.Trip;
+import slbedu.library.services.MailSender;
+import slbedu.library.services.ProfileService;
 import slbedu.library.services.TripService;
 
 @Stateless
@@ -32,6 +35,12 @@ public class TripController {
 	
 	@Inject
 	private TripService tripService;
+	
+	@Inject 
+	private ProfileService profileService;
+	
+	@Inject
+	private MailSender mailSender;
 	
 	@Inject
 	private UserContext userContext;
@@ -184,6 +193,24 @@ public class TripController {
 		tripService.deleteTrip(trip);
 		
 		System.out.println("trip " + tripId + " deleted.");
+		
+		response.sendRedirect(request.getContextPath() + "/profile");
+	}
+	
+	
+	@POST
+	@Path("/subscribeForTrip")
+	@Consumes("application/x-www-form-urlencoded")
+	public void subscribeForTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
+			@FormParam(value="driver") Driver driver) throws ServletException, IOException {
+		
+		Profile driverProfile = profileService.getProfileByPerson(driver);
+		String driverEmail = driverProfile.getEmail();
+		
+		String passengerEmail = userContext.getProfile().getEmail();
+		String passengerUsername = userContext.getProfile().getUsername();
+		
+		mailSender.sendTripEmail(driverEmail, passengerEmail, passengerUsername);
 		
 		response.sendRedirect(request.getContextPath() + "/profile");
 	}

@@ -48,16 +48,16 @@ public class MailSender {
 			return true;
 	}
 	
-	public void sendTripEmail(String driverUsername, String passengerUsername){		
+	public void sendTripEmail(String driverEmail, String passengerEmail, String passengerUsername){		
 			this.setSubject("Passengers for your trip");
 			this.setEmailText(emailText = "The user with username: ");
 
 
-			String email = profileDao.findByUsername(driverUsername).getEmail();
+			
 			
 			emailText = emailText + passengerUsername + " wants to trip with you! " + 
-			 "You can contact him at " + profileDao.findByUsername(passengerUsername).getEmail();		
-			this. configurateAndTransportMessage(email, emailText);
+			 "You can contact him at " + passengerEmail;		
+			this. configurateAndTransportMessage(driverEmail, emailText);
 	}
 	
 	private void setSubject(String subject){

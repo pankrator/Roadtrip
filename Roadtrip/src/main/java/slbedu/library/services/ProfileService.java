@@ -23,5 +23,9 @@ public class ProfileService {
 		
 		return profile;
 	}
+	
+	public Profile getProfileByPerson(Person person){
+		return profileDao.findByPerson(person);
+	}
 
 }
