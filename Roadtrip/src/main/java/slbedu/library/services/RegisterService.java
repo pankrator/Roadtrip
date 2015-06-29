@@ -23,4 +23,8 @@ public class RegisterService {
 		return profileDao.save(profile);
 	}
 	
+	public boolean doesPersonExists(String username){
+		return profileDao.findByUsername(username) != null;
+	}
+	
 }

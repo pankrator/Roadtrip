@@ -59,36 +59,39 @@ public class RegisterController {
 					 @FormParam(value="birthYear") int birthYear) throws ServletException, IOException{
 		
 		RequestDispatcher rd = null;
-
-//		if(password.equals(password2)){
-//			
-//		}
-//		password = AuthenticationUtils.getHashedPassword(password);
 		
 		if (!password.equals(password2)) {
 			request.setAttribute("confirm_error_msg", "Password mismatch!");
 			rd = request.getRequestDispatcher("/register.jsp");
 		} else {
-			Person person = null;
-			if (type == PersonType.DRIVER) {
-				person = new Driver();
-			} else {
-				person = new Passenger();
+			if(regService.doesPersonExists(username)){
+				request.setAttribute("confirm_error_msg", "This username is already taken!");
+				rd = request.getRequestDispatcher("/register.jsp");
 			}
-			person.setBirthYear(birthYear);
-			person.setName(name);
-			person.setTelephone(telephone);
+			else{
+				Person person = null;
+				if (type == PersonType.DRIVER) {
+					person = new Driver();
+				} else {
+					person = new Passenger();
+				}
+				person.setBirthYear(birthYear);
+				person.setName(name);
+				person.setTelephone(telephone);
+				
+				Profile profile = new Profile();
+				profile.setEmail(email);
+				profile.setPassword(password);
+				profile.setUsername(username);
+				
+				regService.register(profile, person);
+				
+//				rd = request.getRequestDispatcher("/login.jsp");
+				response.sendRedirect(request.getContextPath());
+				return;
+			}
 			
-			Profile profile = new Profile();
-			profile.setEmail(email);
-			profile.setPassword(password);
-			profile.setUsername(username);
 			
-			regService.register(profile, person);
-			
-//			rd = request.getRequestDispatcher("/login.jsp");
-			response.sendRedirect(request.getContextPath());
-			return;
 		}
 		
 		rd.forward(request, response);		
