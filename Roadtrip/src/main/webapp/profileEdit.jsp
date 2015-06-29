@@ -39,7 +39,7 @@
 				<div class="form-group" id="nameField">
 					<label class="control-label" for="name">Name:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input class="form-control" id="name" type = "text" name = "name" value=<%=String.valueOf(currentUser.getName())%> />
+					<input class="form-control" id="name" type = "text" name = "name" value="<%=currentUser.getName()%>" />
 				</div>
 				
 				<div class="form-group" id="age">

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
+<%@page import="slbedu.library.model.Passenger"%>
 <%@page import="slbedu.library.model.Driver"%>
 <%@page import="slbedu.library.context.UserContext"%>
 <%
 	UserContext context	= (UserContext)(request.getAttribute("context"));
 	boolean isUserLoggedIn = context.getProfile() != null;
-	String homePagePath = request.getContextPath() + "/trip/tripSearch";
-	if(isUserLoggedIn && context.getProfile().getPerson() instanceof Driver)
-	{
-		homePagePath = request.getContextPath() + "/trip";
-	}
 %>
 <html>
 <head>
@@ -32,7 +28,7 @@
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
-	    	<li><a href="<%=homePagePath%>">Home</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 	    	<li><a href="${pageContext.request.contextPath}/about.jsp">About Us</a></li>
 			<li><a href="${pageContext.request.contextPath}/history.jsp">History</a></li>
 	    </ul>

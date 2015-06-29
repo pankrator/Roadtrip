@@ -64,16 +64,6 @@ public class TripController {
 		rd.forward(request, response);
 	}
 	
-	@GET
-	@Produces("application/json")
-	@Path("/driverMainPage")
-	public void goToDriverMainPage(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = null;
-		rd = request.getRequestDispatcher("/driverMainPage.jsp");
-		
-		rd.forward(request, response);
-	}
-	
 	@POST
 	@Consumes("application/x-www-form-urlencoded")
 	public void createTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,

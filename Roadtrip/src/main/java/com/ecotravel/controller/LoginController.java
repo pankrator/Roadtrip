@@ -1,7 +1,6 @@
 package com.ecotravel.controller;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URISyntaxException;
 
 import javax.ejb.Stateless;
@@ -16,7 +15,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.Response;
 
 import slbedu.library.context.UserContext;
 import slbedu.library.model.Driver;
@@ -52,9 +50,8 @@ public class LoginController {
 		boolean isAuthenticated = authenticationService.authenticate(username, password, request);
 		
 		if (isAuthenticated) {
-//			rd = request.getRequestDispatcher("/profile.jsp");
 			Person person = context.getProfile().getPerson();
-			if(person instanceof Driver){
+			if(person instanceof Driver) {
 				rd = request.getRequestDispatcher("/driverMainPage.jsp");
 			}
 			else{
