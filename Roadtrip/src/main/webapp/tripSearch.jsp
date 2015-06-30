@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div id="welcome" class="container main">
+	<div class="container main">
 		<div class="heading">
 			<h1>Search For Advertisements</h1>
 		</div>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<div class="col-md-4">
+					<div class="col-md-4 col-md-offset-4">
 						<input type="submit" value="Search!" class="btn btn-primary">
 					</div>
 				</div>

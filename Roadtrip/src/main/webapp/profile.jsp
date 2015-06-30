@@ -13,24 +13,22 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<%! static void printInCell(JspWriter out, String a) throws IOException {
-			out.print("<div class=\"col-lg-2\">");
+			<%! static void printInCell(JspWriter out, String a) throws IOException {
+				out.print("<td>");
 				out.print(a);
-			out.print("</div>");
-		}
+				out.print("</td>");
+			}
+			
+			static DateFormat formatter = new SimpleDateFormat("dd-MM HH:mm"); 
 		
-		static DateFormat formatter = new SimpleDateFormat("dd-MM HH:mm"); 
-	
-		static void printAnAdvertisment(JspWriter out, Trip trip) throws IOException{
-			out.print("<div class=\"row\">");
-				printInCell(out, trip.getTravelFrom());
-				printInCell(out, trip.getTravelTo());
-				printInCell(out, formatter.format(trip.getDepartureTime()));
-				printInCell(out, String.valueOf(trip.getFreePlaces()));
-			out.print("</div>");
-		}
-	%>
-
+			static void printAnAdvertisment(JspWriter out, Trip trip) throws IOException{
+				out.print("<tr>");
+					printInCell(out, trip.getTravelFrom());
+					printInCell(out, trip.getTravelTo());
+					printInCell(out, formatter.format(trip.getDepartureTime()));
+					printInCell(out, String.valueOf(trip.getFreePlaces()));
+			}
+			%>
 	<%
 		boolean isDriver = ((UserContext) (request.getAttribute("context")))
 				.getProfile().getPerson() instanceof Driver;
@@ -41,7 +39,7 @@
 			<h1>My Profile:</h1>
 		</div>
 		<div class="row">
-			<div class="col-xs-6">
+			<div class="col-xs-4  personalInfo">
 				<%
 					if (isDriver) {
 				%>
@@ -61,7 +59,8 @@
 			</div>
 		
 			<!-- HERE TO PRINT USER'S TRIPS -->
-			<div class="col-xs-6">
+			<div class="col-xs-8 listingTrips">
+					
 			<%
 				if (isDriver) {
 					List<Trip> listOfTrips = (List<Trip>) (request
@@ -72,22 +71,24 @@
 							+ "<th>To</th>"
 							+ "<th>Depature time</th>"
 							+ "<th>Free places</th>"
-							+ "</tr></thead></table>");
+							+ "</tr></thead>");
 	
 					for (Trip trip : listOfTrips) {
 						printAnAdvertisment(out, trip);
 			%>
-						<form method="GET" action="${pageContext.request.contextPath}/trip/editTrip" class="form-horizontal">
+						<td><form method="GET" action="${pageContext.request.contextPath}/trip/editTrip" class="form-horizontal">
 							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
 							<input type="submit" value="Edit Trip" class="btn btn-warning"/>
-						</form>
+						</form></td>
 				
-						<form method="POST" action="${pageContext.request.contextPath}/trip/deleteTrip" class="form-horizontal">
+						<td><form method="POST" action="${pageContext.request.contextPath}/trip/deleteTrip" class="form-horizontal">
 							<input type="hidden" name="tripId" value="<% out.print(trip.getId()); %>"/>
 							<input type="submit" value="Delete Trip" class="btn btn-danger"/>
-						</form>
+						</form></td>
 			<% 
-					} // end for loop
+						out.print("</tr>");
+					}// end for loop
+					out.print("</table>");
 				}
 			%>
 			</div>

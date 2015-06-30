@@ -8,22 +8,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="${pageContext.request.contextPath}/js/trip.js"></script>
 <title>Road trip</title>
 </head>
 <body>
-	<script src="${pageContext.request.contextPath}/js/trip.js"></script>
-
-	<%@ include file="header.jsp"%>
-	<div id="welcome" class="container">
-		<%!static void printInCell(JspWriter out, String a, int cellSize) throws IOException {
-		out.print("<div class=\"col-lg-" + cellSize + "\">");
-		out.print(a);
-		out.print("</div>");
-	}
+	<%@ include file="header.jsp" %>
+	<%!static void printInCell(JspWriter out, String a, int cellSize) throws IOException {
+			out.print("<td>");
+				out.print(a);
+			out.print("</td>");
+		}
 
 	static void printAnAdvertisment(JspWriter out, Trip trip)
 			throws IOException {
-		out.print("<div class=\"row trip-row\">");
+		out.print("<tr>");
 		String driverUsername = trip.getDriver().getName();
 		printInCell(out, driverUsername, 2);
 		printInCell(out, trip.getTravelFrom(), 2);
@@ -40,36 +38,43 @@
 				"<input class=\"btn btn-warning\" data-user-id="
 						+ trip.getDriver().getId()
 						+ " onclick='gotoProfile(this)' type=\"button\" value='View profile'>", 2);
-		out.print("</div>");
 	}%>
-		
-		<div class="container main">
-			<div class="heading">
-				<h1>Matching trips:</h1>
-			</div>
-			
-			<%
-				out.print("<div class=\"row\">"
-						+ "<div class=\"col-md-2\">Driver</div>"
-						+ "<div class=\"col-md-2\">From</div>"
-						+ "<div class=\"col-md-1\">To</div>"
-						+ "<div class=\"col-md-2\">Date</div>"
-						+ "<div class=\"col-md-1\">Time</div>"
-						+ "<div class=\"col-md-2\">Join trip</div>"
-						+ "<div class=\"col-md-2\">Profile</div>" + "</div>");
-			
-				List<Trip> matchingTrips = (List<Trip>) request
-						.getAttribute("matchingTrips");
-
-				for (Trip a : matchingTrips) {
-					printAnAdvertisment(out, a);
-				}
-
-				if (matchingTrips.isEmpty()) {
-					out.print("<div  class=\"text-danger\">No matching trips</div>");
-				}
-			%>
+	<div class="container main">
+		<div class="heading">
+			<h1>Search Results</h1>
 		</div>
+		
+		<div class="searchResults">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Driver</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Date and Time</th>
+							<th>Available seats</th>
+							<th>Join</th>
+						</tr>
+					</thead>
+					<tbody>								
+						<%
+						
+							List<Trip> matchingTrips = (List<Trip>) request
+									.getAttribute("matchingTrips");
+			
+							for (Trip a : matchingTrips) {
+								printAnAdvertisment(out, a);
+								out.println("</tr>");
+							}
+			
+							if (matchingTrips.isEmpty()) {
+								out.print("tr  class=\"text-danger\">No matching trips</tr>");
+							}
+						%>
+					</tbody>
+				</table>				
+		</div>
+		<h4>${trip_not_selscted_msg}</h4>
 	</div>
 	<%@ include file="footer.jsp"%>
 </body>

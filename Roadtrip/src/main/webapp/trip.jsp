@@ -59,9 +59,12 @@
 		  		
 		  		<!-- <br> -->
 		  		<h4 style="color:red">${trip_creation_error_msg}</h4>
-		  		
-		  		<input type="reset" value="Reset" class="btn btn-warning"/>
-		  		<input type="submit" name="tripCreation" value="Create" class="btn btn-primary">
+		  		<div class="form-group">
+					<div class="col-md-10 col-md-offset-5">
+		  				<input type="reset" value="Reset" class="btn btn-warning"/>
+		  				<input type="submit" name="tripCreation" value="Create" class="btn btn-success">
+		  			</div>
+		  		</div>
 			</form>
 		</div>
 	</div>

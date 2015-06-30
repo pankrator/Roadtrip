@@ -7,8 +7,11 @@
 <body>
 
 	<%@ include file="header.jsp" %>
-	<div class="container">
-		<form id="registerForm" method="POST" action="${pageContext.request.contextPath}/register" class="form-horizontal">
+	<div class="container main">
+		<div class="heading">
+			<h1>Create New Account</h1>
+		</div>
+		<form class="form-horizontal registerForm" method="POST" action="${pageContext.request.contextPath}/register">
 			<div class="form-group" id="nameField">
 				<label class="control-label" for="name">Name:</label>
 				<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
@@ -73,7 +76,7 @@
 			</div>
 			
 			<input type="reset" value="reset" class="btn btn-warning"/>
-			<input type="submit" name="registerSubmit" value="submit" class="btn btn-primary"/>
+			<input type="submit" name="registerSubmit" value="submit" class="btn btn-success"/>
 		</form>	
 	</div>
 	<%@ include file="footer.jsp" %>

@@ -11,9 +11,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/site.css">
 <title>Road trip</title>
 </head>
 <body>
@@ -99,7 +96,7 @@
 					</div>
 				<%} %>
 				
-				<input type="submit" name="registerSubmit" value="Submit" class="btn btn-primary"/>
+				<input type="submit" name="registerSubmit" value="Submit" class="btn btn-success"/>
 			</form>
 		</div>
 	</div>

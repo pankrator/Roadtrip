@@ -1,3 +1,7 @@
+.displayIN {
+	display: inline-block;	
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -62,7 +66,7 @@ body {
 	
 }
 
-form[action="logout"] {
+input[value="Logout"] {
 	margin-top: 7px;
 }
 
@@ -70,8 +74,16 @@ form[action="logout"] {
 	border-bottom: 1px solid #e7e7e7;
 }
 
-.login, .tripForm, .searchTrip, .editForm {
+.registerForm, .forgottenPass, .editTrip {
+	padding: 20px;
+}
+
+.login, .tripForm, .searchTrip, .editForm, .registerForm, .forgottenPass, .editTrip {
 	padding-top: 20px;
+}
+
+label {
+	padding-right: 5px;
 }
 
 .driverImg {
@@ -86,6 +98,11 @@ form[action="logout"] {
 	height: 30%;
 }
 
-#SmokingInTheCar {
+.personalInfo {
+	padding-right: 10px;
+	border-right: 2px solid #eee;
+}
+
+#SmokingInTheCar, #hasDriverLicense > div {
 	padding-left: 20px;
 }

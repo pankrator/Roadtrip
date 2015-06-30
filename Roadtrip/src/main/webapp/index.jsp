@@ -2,9 +2,6 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/bootstrap-theme.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/site.css">
 	<title>Road trip</title>
 </head>
 <body>
@@ -30,15 +27,15 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-5 col-sm-10">
+						<div class="col-sm-offset-2 col-sm-10">
 							<a id="forgottenPassword" href="${pageContext.request.contextPath}/register/forgottenPassword" class="text-danger">Forgotten password</a>
 						</div>
-						<div class="col-sm-offset-5 col-sm-10">
+						<div class="col-sm-offset-2 col-sm-10">
 							<a id="registerForm" href="register" class="text-info">Create new account</a>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
+						<div class="col-sm-offset-5 col-sm-10">
 							<input type="submit" value="Submit" class="btn btn-success">
 						</div>
 					</div>
