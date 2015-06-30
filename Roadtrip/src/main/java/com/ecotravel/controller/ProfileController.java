@@ -14,13 +14,15 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
 import slbedu.library.context.UserContext;
+import slbedu.library.dao.PersonDAO;
 import slbedu.library.model.Driver;
 import slbedu.library.model.Passenger;
+import slbedu.library.model.Person;
 import slbedu.library.model.Profile;
 import slbedu.library.model.Trip;
 import slbedu.library.services.ProfileService;
@@ -39,6 +41,9 @@ public class ProfileController {
 	@Inject
 	private UserContext context;
 	
+	@Inject
+	private PersonDAO personDao;
+	
 	@GET
 	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = null;
@@ -55,13 +60,22 @@ public class ProfileController {
 		rd.forward(request, response);
 	}
 	
-//	@GET
-//	public void viewProfile(@Context HttpServletRequest request, 
-//							@Context HttpServletResponse response,
-//							@QueryParam("id") Long id) {
-//		profileService.
-//		Profile profile = 
-//	}
+	@GET
+	@Path("/user/{id}")
+	public void viewProfile(@Context HttpServletRequest request, 
+							@Context HttpServletResponse response,
+							@PathParam("id") Long id) throws ServletException, IOException {
+		
+		Person person = personDao.findById(id);
+		Profile profile = profileService.getProfileByPerson(person);
+		
+		request.setAttribute("profile", profile);
+		
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/viewProfile.jsp");
+		
+		rd.forward(request, response);
+	}
 	
 	
 	

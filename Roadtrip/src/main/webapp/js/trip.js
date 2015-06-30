@@ -17,3 +17,10 @@ var subscribeForTrip = function (button) {
 	$(button).attr('value', 'Sending...');
 	$(button).attr('disabled', 'disabled');
 }
+
+
+var gotoViewProfile = function(button) {
+	var driverId = $(button).attr("data-driver-id");
+	
+	window.location = baseServiceUrl + "profile/user/" + driverId;
+}

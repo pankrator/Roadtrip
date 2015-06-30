@@ -35,9 +35,10 @@
 						+ " onclick='subscribeForTrip(this)' type=\"button\" value='Join'>", 2);
 		printInCell(
 				out,
-				"<input class=\"btn btn-warning\" data-user-id="
+				"<input class=\"btn btn-warning\" data-driver-id="
 						+ trip.getDriver().getId()
-						+ " onclick='gotoProfile(this)' type=\"button\" value='View profile'>", 2);
+						+ " onclick='gotoViewProfile(this)' type=\"button\" value='View profile'>", 2);
+			
 		out.println("</tr>");
 	}%>
 	<div class="container main">
