@@ -38,6 +38,7 @@
 				"<input class=\"btn btn-warning\" data-user-id="
 						+ trip.getDriver().getId()
 						+ " onclick='gotoProfile(this)' type=\"button\" value='View profile'>", 2);
+		out.println("</tr>");
 	}%>
 	<div class="container main">
 		<div class="heading">
@@ -59,16 +60,14 @@
 					<tbody>								
 						<%
 						
-							List<Trip> matchingTrips = (List<Trip>) request
-									.getAttribute("matchingTrips");
+							List<Trip> matchingTrips = (List<Trip>)request.getAttribute("matchingTrips");
 			
 							for (Trip a : matchingTrips) {
 								printAnAdvertisment(out, a);
-								out.println("</tr>");
 							}
 			
 							if (matchingTrips.isEmpty()) {
-								out.print("tr  class=\"text-danger\">No matching trips</tr>");
+								out.print("<tr class=\"text-danger\">No matching trips</tr>");
 							}
 						%>
 					</tbody>

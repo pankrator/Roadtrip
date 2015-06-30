@@ -25,7 +25,7 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="">RoadTrip</a>
+	    <span class="navbar-brand">RoadTrip</span>
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
@@ -37,7 +37,6 @@
 
 	    <ul class="nav navbar-nav navbar-right">
 	    <% if (isUserLoggedIn) { %>
-				<li><a href="${pageContext.request.contextPath}/statistics">Statistics</a></li>
 				<li><a href="${pageContext.request.contextPath}/profile" class="text-info">My Profile</a></li>
 				<li><form method="GET" action="${pageContext.request.contextPath}/logout">
 					<input type="submit" value="Logout" class="btn btn-danger" />
