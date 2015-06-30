@@ -43,12 +43,6 @@
 					<div class="tripAttr"><% out.println(trip.getDepartureTime()); %></div>
 				</div>
 				
-				<div class="form-group" id="timeField">
-					<label class="control-label" for="time">Time:</label>
-					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<div class="tripAttr"><% out.println(trip.getTravelFrom()); %></div>
-				</div>
-				
 				<div class="form-group" id="freePlaces">
 					<label class="control-label" for="freePlaces">Available seats:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
@@ -60,40 +54,7 @@
 					<div class="col-md-4 col-md-offset-4">
 						<input type="submit" value="Submit" class="btn btn-success"/>
 					</div>
-				</div>		
-<%--				<%! static void printInCell(JspWriter out, String a) throws IOException {
-						out.print("<td>");
-							out.print(a);
-						out.println("</td>");
-					}
-					
-					static DateFormat formatter = new SimpleDateFormat("dd-MM HH:mm");
-					
-					static void printTrip(JspWriter out, Trip trip) throws IOException {
-						out.println("<tr>");
-							printInCell(out, trip.getTravelFrom());
-							printInCell(out, trip.getTravelTo());
-							printInCell(out, formatter.format(trip.getDepartureTime()));
-							out.println("<input type=\"hidden\" name=\"tripId\" value=\"" + trip.getId() + "\"/>");
-							out.println("<td><input type=\"number\" min=\"0\" max=\"6\" name=\"freePlaces\" value=\"Free Places\"></td>");
-							out.println("<td><input type=\"submit\" value=\"Confirm Changes\" class=\"btn btn-info\"/></td>");
-						out.println("</tr>");
-					}
-				%>
-				<table class="table">
-					<thead><tr>
-						<th>From</th>
-			 		    <th>To</th>
-			 		  	<th>Date and Time</th>
-			   			<th>Free Places</th>
-		   			</tr></thead>
-		  	    	<tbody>	
-						<%
-							printTrip(out, (Trip)request.getAttribute("tripToEdit"));
-						%>
-					</tbody>	
-				</table>
- --%>				
+				</div>					
 			</form>
 		</div>
 	</div>		

@@ -16,7 +16,7 @@
 					<h2 class="text-warning">Dafina Ivanova Karamanoleva</h2>
 				</div>
 				<div class="row"><em>
-				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">SU</abbr></a>
+				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
 				</em></div>
 				<div class="row"><em>
 					Studying: Software engineering -> Grade 2
@@ -27,7 +27,7 @@
 					<h2 class="text-warning">Vladimir Penchev Pechev</h2>
 				</div>
 				<div class="row"><em>
-					Student at: <a href="https://www.uni-sofia.bg/" > <abbr title="Sofia University">SU</abbr></a>
+					Student at: <a href="https://www.uni-sofia.bg/" > <abbr title="Sofia University">Sofia University</abbr></a>
 				</em></div>
 				<div class="row"  style="font-style: italic;"><em>
 					Studying: Software engineering -> Grade 2
@@ -38,7 +38,7 @@
 					<h2 class="text-warning">Nikola Yoshev Monov</h2>
 				</div>
 				<div class="row"><em>
-				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">SU</abbr></a>
+				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
 				</em></div>
 				<div class="row"><em>
 					Studying: Software engineering -> Grade 3
@@ -49,7 +49,7 @@
 					<h2 class="text-warning">Nikolay Stanislavov Stoykov</h2>
 				</div>
 				<div class="row"><em>
-				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">SU</abbr></a>
+				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
 				</em></div>
 				<div class="row"><em>
 					Studying: Software engineering -> Grade 3
