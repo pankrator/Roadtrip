@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Forgotten password</title>
 </head>
 <body>
 	<%@ include file="header.jsp" %>
@@ -15,7 +15,7 @@
 		
 		<form class="forgottenPass form-horizontal" action="${pageContext.request.contextPath}/register/resetPassword" method="Post">
 			<div class="form-group">
-				<label for="username" class="col-md-1">Hello</label>
+				<label for="username" class="col-md-1">Username:</label>
 				<input class="col-md-3" name="username" type="text" placeholder="Username"/>
 			</div>
 			<div class="form-group">

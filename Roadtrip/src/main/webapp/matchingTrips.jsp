@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.util.ArrayList"%>
@@ -18,6 +20,8 @@
 				out.print(a);
 			out.print("</td>");
 		}
+	
+	static DateFormat formatter = new SimpleDateFormat("dd-MM HH:mm");
 
 	static void printAnAdvertisment(JspWriter out, Trip trip)
 			throws IOException {
@@ -26,7 +30,7 @@
 		printInCell(out, driverUsername, 2);
 		printInCell(out, trip.getTravelFrom(), 2);
 		printInCell(out, trip.getTravelTo(), 1);
-		printInCell(out, trip.getDepartureTime().toString(), 1);
+		printInCell(out, formatter.format(trip.getDepartureTime()), 1);
 		printInCell(out, String.valueOf(trip.getFreePlaces()) + " places left", 2);
 		printInCell(
 				out,
