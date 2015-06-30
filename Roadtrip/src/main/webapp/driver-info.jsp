@@ -45,15 +45,7 @@
 	</tr>
 	<tr>
 		<th>Music: </th>
-		<td><% out.print(driver.getMusicInTheCar()); %></td>
-	</tr>
-	<tr>
-		<th>Number of travels: </th>
-		<td><% out.print(driver.getNumberOfTravels()); %></td>
-	</tr>
-	<tr>
-		<th>Rating: </th>
-		<td><% out.print(driver.getRating()); %></td>
+		<td><% out.print(driver.getMusicInTheCar() != null ? driver.getMusicInTheCar() : ""); %></td>
 	</tr>
 
 </table>

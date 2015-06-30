@@ -11,7 +11,7 @@
 
 	<div class="container main">
 		<div class="heading">
-			<h1>My Profile:</h1>
+			<h1>Driver profile:</h1>
 		</div>
 	</div>
 	<%@ include file="footer.jsp"%>

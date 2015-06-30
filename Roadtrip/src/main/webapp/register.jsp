@@ -62,18 +62,6 @@
 					<option value="PASSANGER">Passanger</option>
 				</select>
 			</div>
-				
-			<div class="form-group" id="hasDriverLicense">
-				<label class="control-label" for="driverOption">Do you have a driving license?</label>
-				<div class="row">
-					<label class="control-label">Yes</label>
-					<input type="radio" name="driverLicense" value="Yes"/>
-				</div>
-				<div class="row">
-					<label class="control-label">No</label>
-					<input type="radio" name="driverLicense" value="No" checked="checked" />
-				</div>
-			</div>
 			
 			<input type="reset" value="reset" class="btn btn-warning"/>
 			<input type="submit" name="registerSubmit" value="submit" class="btn btn-success"/>
