@@ -6,8 +6,11 @@
 </head>
 <body>
     <%@ include file="header.jsp" %>
-    <div id="welcome" class="container">
-	    <div class="jumbotron">
+    <div class="container main">
+    	<div class="heading">
+			<h1>History:</h1>
+		</div>
+	    <div class="history">
 			<p style="text-align:justify"">
 				Carpooling first became prominent in the United States as a rationing tactic during World War II. 
 				It returned in the mid-1970s due to the 1973 oil crisis and the 1979 energy crisis. At that time the first employee 
@@ -23,11 +26,11 @@
 				rides thanks to easy-to-use and reliable online transport marketplaces. These websites are commonly used for one-off 
 				long-distance journeys with high fuel costs.
 			</p>
-			<br>
 			<div style="text-align:center">
 				<iframe width="560" height="315" src="//www.youtube.com/embed/sdWGt3kgZTs" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

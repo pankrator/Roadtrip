@@ -15,8 +15,10 @@
 		
 		<form class="forgottenPass form-horizontal" action="${pageContext.request.contextPath}/register/resetPassword" method="Post">
 			<div class="form-group">
-				<label for="username" class="col-md-1">Username:</label>
-				<input class="col-md-3" name="username" type="text" placeholder="Username"/>
+				<input class="col-md-3" name="username" type="text" placeholder="Username"/></br>				
+			</div>
+			<div class="form-group">
+				<em>Check your e-mail address after confirming the username.</em>
 			</div>
 			<div class="form-group">
 				<div class="col-md-4 col-md-offset-3">

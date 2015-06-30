@@ -5,6 +5,11 @@
 <%@ page import="slbedu.library.model.Trip"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%
+	Trip trip = (Trip)(request.getAttribute("tripToEdit"));
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,31 +28,32 @@
 				<div class="form-group" id="fromField">
 					<label class="control-label" for="from">From:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input class="form-control"type = "text" name = "from" value="From" />
+					<div class="tripAttr"><% out.println(trip.getTravelFrom()); %></div>
 				</div>
 								
 				<div class="form-group" id="toField">
 					<label class="control-label" for="to">To:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input class="form-control" type = "text" name = "to" value="To" />
+					<div class="tripAttr"><% out.println(trip.getTravelTo()); %></div>
 				</div>
 				
 				<div class="form-group" id="fromField">
 					<label class="control-label" for="date">Date:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input class="form-control" type = "text" name = "date" value="Date" />
+					<div class="tripAttr"><% out.println(trip.getDepartureTime()); %></div>
 				</div>
 				
 				<div class="form-group" id="timeField">
 					<label class="control-label" for="time">Time:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input class="form-control" type = "text" name = "time" value="Time" />
+					<div class="tripAttr"><% out.println(trip.getTravelFrom()); %></div>
 				</div>
 				
 				<div class="form-group" id="freePlaces">
 					<label class="control-label" for="freePlaces">Available seats:</label>
 					<h6 style="color:red; display:inline; margin-left:5px;">${short_name_msg}</h6>
-					<input type="number" min="0" max="6" name="freePlaces" value="Free Places">
+					<input type="hidden" name="tripId" value="<%=trip.getId()%>"/>
+					<input type="number" min="0" max="6" name="freePlaces" value="<%=trip.getFreePlaces()%>">
 				</div>
 				
 				<div class="form-group">
@@ -91,10 +97,6 @@
 			</form>
 		</div>
 	</div>		
-<%--		<h1>PAGE IS UNDER CONSTRUCTION</h1>
-		<% out.print("Trip id is: " + request.getAttribute("tripId")); %><!-- to be DELETED -->
---%>
-		
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -74,7 +74,7 @@ input[value="Logout"] {
 	border-bottom: 1px solid #e7e7e7;
 }
 
-.registerForm, .forgottenPass, .editTrip {
+.registerForm, .forgottenPass, .editTrip, .tripForm {
 	padding: 20px;
 }
 
@@ -105,4 +105,23 @@ label {
 
 #SmokingInTheCar, #hasDriverLicense > div {
 	padding-left: 20px;
+}
+
+.whoAreWe {
+	padding: 20px;
+	& > .person {
+		padding-right: 20px;
+		border-bottom: 1px solid #eee;
+	}
+}
+
+.history {
+	padding-bottom: 20px;
+}
+
+.tripAttr {
+	padding: 5px;
+	border: 1px solid #eee;
+	background-color: #fff;
+	width: 40%;
 }
