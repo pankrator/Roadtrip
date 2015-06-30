@@ -30,7 +30,9 @@ public class AuthenticationFilter implements Filter {
 		"/Roadtrip/styles/.*",
 		"/Roadtrip/login",
 		"/Roadtrip/register",
-		"/Roadtrip/register/.*"
+		"/Roadtrip/register/.*",
+		"/Roadtrip/about",
+		"/Roadtrip/history"
 	));
 
 	@Inject

@@ -25,14 +25,14 @@
 	      <span class="icon-bar"></span>
 	      <span class="icon-bar"></span>
 	    </button>
-	    <a class="navbar-brand" href="#">RoadTrip</a>
+	    <a class="navbar-brand" href="">RoadTrip</a>
 	  </div>
 	  <div class="navbar-collapse collapse navbar-responsive-collapse">
 	    <ul class="nav navbar-nav">
 	    
 	    	<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-	    	<li><a href="${pageContext.request.contextPath}/about.jsp">About Us</a></li>
-			<li><a href="${pageContext.request.contextPath}/history.jsp">History</a></li>
+	    	<li><a href="${pageContext.request.contextPath}/about">About Us</a></li>
+			<li><a href="${pageContext.request.contextPath}/history">History</a></li>
 	    </ul>
 
 	    <ul class="nav navbar-nav navbar-right">

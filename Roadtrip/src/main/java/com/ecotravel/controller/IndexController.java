@@ -44,4 +44,21 @@ public class IndexController {
 		
 		rd.forward(request, response);
 	}
+
+	@GET
+	@Path("about")
+	public void about(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/about.jsp");			
+		rd.forward(request, response);
+	}
+	
+	@GET
+	@Path("history")
+	public void history(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = null;
+		rd = request.getRequestDispatcher("/history.jsp");			
+		rd.forward(request, response);
+	}
+	
 }
