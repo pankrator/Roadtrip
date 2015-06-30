@@ -50,6 +50,13 @@
 					<input class="form-control" id="telephone" type = "tel" name = "telephone" value=<%=currentUser.getTelephone()%> >
 				</div>
 				
+				<% if(isDriver) { %>
+					<div class="form-group" id="licenseYear">
+						<label class="control-label" for="license">License Year:</label>
+						<input class="form-control" id="license" type="license" name="licenseYear" value=<%=((Driver)currentUser).getLicenseYear()%> >
+					</div>
+				<% } %>
+				
 				<div class="form-group" id="emailField">
 					<!-- Can not be changed -->
 					<label class="control-label" for="email">Email:</label>

@@ -31,13 +31,5 @@
 		<th>Phone: </th>
 		<td><% out.print(profile.getPerson().getTelephone()); %></td>
 	</tr>
-	<tr>
-		<th>Driving License: </th>
-		<td>Yes</td>
-	</tr>
-	<tr>
-		<th>Rating: </th>
-		<td><% out.print(passenger.getRating()); %></td>
-	</tr>
 
 </table>

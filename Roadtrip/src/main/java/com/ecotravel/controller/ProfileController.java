@@ -120,6 +120,7 @@ public class ProfileController {
 			 @FormParam(value="name") String name,
 			 @FormParam(value="birthYear") int birthYear,
 			 @FormParam(value="telephone") String telephone,
+			 @FormParam(value="licenseYear") int licenseYear,
 			 @FormParam(value="password") String password,
 			 @FormParam(value="rePassword") String password2,
 			 @FormParam(value="isSmoking") String smoking,
@@ -137,6 +138,7 @@ public class ProfileController {
 			person.setName(name);
 			person.setBirthYear(birthYear);
 			person.setTelephone(telephone);
+			person.setLicenseYear(licenseYear);
 			person.setMusicInTheCar(music);
 			
 			if (smoking == "Yes") {
