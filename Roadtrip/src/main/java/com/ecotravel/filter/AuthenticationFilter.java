@@ -1,4 +1,4 @@
-package slbedu.library.rest;
+package com.ecotravel.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import slbedu.library.context.UserContext;
+import com.ecotravel.context.UserContext;
 
 @Stateless
 @WebFilter("/*")
@@ -54,14 +54,10 @@ public class AuthenticationFilter implements Filter {
         
         request.setAttribute("context", context);
         if (needsAuth && context.getProfile() == null) {
-//        	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-//        	rd.forward(request, response);
         	response.sendRedirect(request.getContextPath() + "/");
         } else {
         	chain.doFilter(request, response);
         }
-        
-//        chain.doFilter(request, response);
 	}
 	
 	private boolean needsAuthentication(String path) {

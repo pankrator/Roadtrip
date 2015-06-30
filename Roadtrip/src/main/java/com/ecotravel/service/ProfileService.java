@@ -1,11 +1,11 @@
-package slbedu.library.services;
+package com.ecotravel.service;
 
 import javax.inject.Inject;
 
-import slbedu.library.dao.PersonDAO;
-import slbedu.library.dao.ProfileDAO;
-import slbedu.library.model.Person;
-import slbedu.library.model.Profile;
+import com.ecotravel.dao.PersonDAO;
+import com.ecotravel.dao.ProfileDAO;
+import com.ecotravel.model.Person;
+import com.ecotravel.model.Profile;
 
 public class ProfileService {
 	

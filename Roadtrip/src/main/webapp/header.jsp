@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<%@page import="slbedu.library.model.Passenger"%>
-<%@page import="slbedu.library.model.Driver"%>
-<%@page import="slbedu.library.context.UserContext"%>
+<%@page import="com.ecotravel.context.UserContext"%>
 <%
 	UserContext context	= (UserContext)(request.getAttribute("context"));
 	boolean isUserLoggedIn = context.getProfile() != null;

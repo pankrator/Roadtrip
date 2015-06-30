@@ -1,4 +1,4 @@
-package slbedu.library.dao;
+package com.ecotravel.dao;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import slbedu.library.model.Person;
-import slbedu.library.model.Profile;
+import com.ecotravel.model.Person;
+import com.ecotravel.model.Profile;
 
 @Singleton
 public class ProfileDAO extends BaseDAO<Profile>{

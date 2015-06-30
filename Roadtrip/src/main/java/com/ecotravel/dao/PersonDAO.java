@@ -1,10 +1,10 @@
-package slbedu.library.dao;
+package com.ecotravel.dao;
 
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import slbedu.library.model.Person;
+import com.ecotravel.model.Person;
 
 @Singleton
 public class PersonDAO extends BaseDAO<Person> {

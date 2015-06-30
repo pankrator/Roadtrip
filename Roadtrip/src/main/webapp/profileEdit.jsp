@@ -1,12 +1,9 @@
-
+<%@page import="com.ecotravel.model.Driver"%>
+<%@page import="com.ecotravel.model.Person"%>
+<%@page import="com.ecotravel.model.Profile"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.ecotravel.utils.MusicTypesContainer"%>
-<%@ page import="slbedu.library.model.Person"%>
-
-<%@ page import="slbedu.library.model.Trip"%>
-<%@ page import="slbedu.library.model.Profile"%>
-<%@ page import="slbedu.library.model.Driver"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

@@ -17,14 +17,14 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.model.Driver;
-import slbedu.library.model.Passenger;
-import slbedu.library.model.Person;
-import slbedu.library.model.Profile;
-import slbedu.library.services.MailSender;
-import slbedu.library.services.RegisterService;
-
 import com.ecotravel.enums.PersonType;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Passenger;
+import com.ecotravel.model.Person;
+import com.ecotravel.model.Profile;
+import com.ecotravel.service.MailSender;
+import com.ecotravel.service.RegisterService;
+import com.ecotravel.utils.AuthenticationUtils;
 
 @Stateless
 @Path("register")
@@ -60,6 +60,7 @@ public class RegisterController {
 		
 		RequestDispatcher rd = null;
 		
+		
 		if (!password.equals(password2)) {
 			request.setAttribute("confirm_error_msg", "Password mismatch!");
 			rd = request.getRequestDispatcher("/register.jsp");
@@ -81,7 +82,8 @@ public class RegisterController {
 				
 				Profile profile = new Profile();
 				profile.setEmail(email);
-				profile.setPassword(password);
+				String hashedPassword = AuthenticationUtils.getHashedPassword(password);
+				profile.setPassword(hashedPassword);
 				profile.setUsername(username);
 				
 				regService.register(profile, person);

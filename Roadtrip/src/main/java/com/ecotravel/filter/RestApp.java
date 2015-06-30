@@ -1,4 +1,4 @@
-package slbedu.library.rest;
+package com.ecotravel.filter;
 
 import javax.ws.rs.core.Application;
 

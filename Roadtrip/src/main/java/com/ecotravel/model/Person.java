@@ -1,4 +1,4 @@
-package slbedu.library.model;
+package com.ecotravel.model;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;

@@ -1,12 +1,13 @@
-package slbedu.library.services;
+package com.ecotravel.service;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
-import slbedu.library.context.UserContext;
-import slbedu.library.dao.ProfileDAO;
-import slbedu.library.model.Profile;
+import com.ecotravel.context.UserContext;
+import com.ecotravel.dao.ProfileDAO;
+import com.ecotravel.model.Profile;
+import com.ecotravel.utils.AuthenticationUtils;
 
 @Stateless
 public class AuthenticationService {
@@ -24,7 +25,9 @@ public class AuthenticationService {
 			return false;
 		}
 		
-		if (profile.getPassword().equals(password)) {
+		String hashedPassword = AuthenticationUtils.getHashedPassword(password);
+		
+		if (profile.getPassword().equals(hashedPassword)) {
 			context.setProfile(profile);
 			return true;
 		}

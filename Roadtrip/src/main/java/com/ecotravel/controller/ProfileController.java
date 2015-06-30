@@ -18,15 +18,16 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.context.UserContext;
-import slbedu.library.dao.PersonDAO;
-import slbedu.library.model.Driver;
-import slbedu.library.model.Passenger;
-import slbedu.library.model.Person;
-import slbedu.library.model.Profile;
-import slbedu.library.model.Trip;
-import slbedu.library.services.ProfileService;
-import slbedu.library.services.TripService;
+import com.ecotravel.context.UserContext;
+import com.ecotravel.dao.PersonDAO;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Passenger;
+import com.ecotravel.model.Person;
+import com.ecotravel.model.Profile;
+import com.ecotravel.model.Trip;
+import com.ecotravel.service.ProfileService;
+import com.ecotravel.service.TripService;
+import com.ecotravel.utils.AuthenticationUtils;
 
 @Stateless
 @Path("profile")
@@ -116,7 +117,7 @@ public class ProfileController {
 			person.setBirthYear(birthYear);
 			person.setTelephone(telephone);
 			
-			profile.setPassword(password);
+			profile.setPassword(AuthenticationUtils.getHashedPassword(password));
 		
 			profileService.editProfile(profile, person);
 			
@@ -161,7 +162,7 @@ public class ProfileController {
 				person.setSmoking(false);
 			}
 			
-			profile.setPassword(password);
+			profile.setPassword(AuthenticationUtils.getHashedPassword(password));
 			
 			profileService.editProfile(profile, person);
 			

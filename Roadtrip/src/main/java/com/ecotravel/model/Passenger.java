@@ -1,4 +1,4 @@
-package slbedu.library.model;
+package com.ecotravel.model;
 
 import java.io.Serializable;
 

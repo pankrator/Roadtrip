@@ -1,8 +1,8 @@
+<%@page import="com.ecotravel.model.Trip"%>
 <%@ page import="java.io.IOException"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="java.text.DateFormat"%>
 <%@ page import="java.util.List"%>
-<%@ page import="slbedu.library.model.Trip"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     

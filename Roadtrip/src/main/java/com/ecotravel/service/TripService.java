@@ -1,13 +1,13 @@
-package slbedu.library.services;
+package com.ecotravel.service;
 
 import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
-import slbedu.library.dao.TripDAO;
-import slbedu.library.model.Driver;
-import slbedu.library.model.Trip;
+import com.ecotravel.dao.TripDAO;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Trip;
 
 @Stateless
 public class TripService {

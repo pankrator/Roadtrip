@@ -14,7 +14,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.services.AuthenticationService;
+import com.ecotravel.service.AuthenticationService;
 
 @Stateless
 @Path("logout")

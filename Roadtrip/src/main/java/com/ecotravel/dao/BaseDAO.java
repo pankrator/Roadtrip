@@ -1,4 +1,4 @@
-package slbedu.library.dao;
+package com.ecotravel.dao;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package slbedu.library.context;
+package com.ecotravel.context;
 
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 
-import slbedu.library.model.Profile;
+import com.ecotravel.model.Profile;
 
 @SessionScoped
 public class UserContext implements Serializable {

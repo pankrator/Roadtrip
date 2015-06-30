@@ -1,4 +1,4 @@
-package slbedu.library.dao;
+package com.ecotravel.dao;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import slbedu.library.model.Driver;
+import com.ecotravel.model.Driver;
 
 @Singleton
 public class DriverDAO extends BaseDAO<Driver> {

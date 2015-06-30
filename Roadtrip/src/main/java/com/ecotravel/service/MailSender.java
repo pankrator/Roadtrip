@@ -1,4 +1,4 @@
-package slbedu.library.services;
+package com.ecotravel.service;
 
 import java.util.Properties;
 
@@ -11,11 +11,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.ecotravel.dao.ProfileDAO;
+import com.ecotravel.model.Profile;
+import com.ecotravel.utils.AuthenticationUtils;
 import com.ecotravel.utils.Emailer;
 import com.ecotravel.utils.RandomStringGenerator;
-
-import slbedu.library.dao.ProfileDAO;
-import slbedu.library.model.Profile;
 
 @Stateless
 public class MailSender {
@@ -40,7 +40,7 @@ public class MailSender {
 			if(email == null)
 				return false;
 			String newPassword = RandomStringGenerator.generateRandomString();
-			userProfile.setPassword(newPassword);
+			userProfile.setPassword(AuthenticationUtils.getHashedPassword(newPassword));
 			profileDao.save(userProfile);
 			this.emailText = emailText + newPassword + "\nGreetings, Road Trip team!";	
 			

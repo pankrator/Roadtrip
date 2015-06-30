@@ -1,10 +1,8 @@
+<%@page import="com.ecotravel.model.Trip"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="java.io.IOException"%>
-<%@page import="slbedu.library.model.Trip"%>
-<%@page import="slbedu.library.model.Profile"%>
-<%@page import="slbedu.library.model.Driver"%>
 <!DOCTYPE html>
 <html>
 <head>

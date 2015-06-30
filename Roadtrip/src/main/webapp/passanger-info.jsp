@@ -1,6 +1,6 @@
-<%@page import="slbedu.library.context.UserContext"%>
-<%@page import="slbedu.library.model.Profile"%>
-<%@page import="slbedu.library.model.Passenger"%>
+<%@page import="com.ecotravel.context.UserContext"%>
+<%@page import="com.ecotravel.model.Passenger"%>
+<%@page import="com.ecotravel.model.Profile"%>
 
 <%
 	Profile profile = ((UserContext)(request.getAttribute("context"))).getProfile();

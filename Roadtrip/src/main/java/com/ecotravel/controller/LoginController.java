@@ -16,10 +16,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.context.UserContext;
-import slbedu.library.model.Driver;
-import slbedu.library.model.Person;
-import slbedu.library.services.AuthenticationService;
+import com.ecotravel.context.UserContext;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Person;
+import com.ecotravel.service.AuthenticationService;
 
 @Stateless
 @Path("login")

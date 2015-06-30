@@ -13,8 +13,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.context.UserContext;
-import slbedu.library.model.Driver;
+import com.ecotravel.context.UserContext;
+import com.ecotravel.model.Driver;
 
 @Stateless
 @Path("/")

@@ -21,13 +21,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 
-import slbedu.library.context.UserContext;
-import slbedu.library.model.Driver;
-import slbedu.library.model.Profile;
-import slbedu.library.model.Trip;
-import slbedu.library.services.MailSender;
-import slbedu.library.services.ProfileService;
-import slbedu.library.services.TripService;
+import com.ecotravel.context.UserContext;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Profile;
+import com.ecotravel.model.Trip;
+import com.ecotravel.service.MailSender;
+import com.ecotravel.service.ProfileService;
+import com.ecotravel.service.TripService;
 
 @Stateless
 @Path("trip")

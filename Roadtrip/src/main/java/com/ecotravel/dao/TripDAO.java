@@ -1,4 +1,4 @@
-package slbedu.library.dao;
+package com.ecotravel.dao;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import slbedu.library.model.Driver;
-import slbedu.library.model.Trip;
+import com.ecotravel.model.Driver;
+import com.ecotravel.model.Trip;
 
 @Singleton
 public class TripDAO extends BaseDAO<Trip> {
