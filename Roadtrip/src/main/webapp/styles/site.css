@@ -71,7 +71,7 @@ input[value="Logout"] {
 }
 
 .heading {
-	border-bottom: 1px solid #e7e7e7;
+	border-bottom: 1px solid #ccc;
 }
 
 .registerForm, .forgottenPass, .editTrip, .tripForm {
@@ -100,7 +100,7 @@ label {
 
 .personalInfo {
 	padding-right: 10px;
-	border-right: 2px solid #eee;
+	border-right: 2px solid #ccc;
 }
 
 #SmokingInTheCar, #hasDriverLicense > div {
@@ -109,19 +109,26 @@ label {
 
 .whoAreWe {
 	padding: 20px;
-	& > .person {
-		padding-right: 20px;
-		border-bottom: 1px solid #eee;
-	}
+	text-align: center;
+}
+
+.whoAreWe > .person {
+	padding-right: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ccc;
 }
 
 .history {
 	padding-bottom: 20px;
 }
 
+.history > p {
+	text-align: justify;
+}
+
 .tripAttr {
 	padding: 5px;
-	border: 1px solid #eee;
+	border: 1px solid #ccc;
 	background-color: #fff;
 	width: 40%;
 }

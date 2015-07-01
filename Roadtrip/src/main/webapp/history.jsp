@@ -11,7 +11,7 @@
 			<h1>History:</h1>
 		</div>
 	    <div class="history">
-			<p style="text-align:justify"">
+			<p>
 				Carpooling first became prominent in the United States as a rationing tactic during World War II. 
 				It returned in the mid-1970s due to the 1973 oil crisis and the 1979 energy crisis. At that time the first employee 
 				vanpools were organized at Chrysler and 3M.

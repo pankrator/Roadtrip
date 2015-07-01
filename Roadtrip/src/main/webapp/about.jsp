@@ -13,7 +13,7 @@
 		<div class="whoAreWe">
 			<div class="person">
 				<div class="row">
-					<h2 class="text-warning">Dafina Ivanova Karamanoleva</h2>
+					<h2>Dafina Ivanova Karamanoleva</h2>
 				</div>
 				<div class="row"><em>
 				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
@@ -24,7 +24,7 @@
 			</div>
 			<div class="person">
 				<div class="row">
-					<h2 class="text-warning">Vladimir Penchev Pechev</h2>
+					<h2>Vladimir Penchev Pechev</h2>
 				</div>
 				<div class="row"><em>
 					Student at: <a href="https://www.uni-sofia.bg/" > <abbr title="Sofia University">Sofia University</abbr></a>
@@ -33,9 +33,9 @@
 					Studying: Software engineering -> Grade 2
 				</em></div> 
 			</div>
-			<div class="person">
+			<div class="person active">
 				<div class="row">
-					<h2 class="text-warning">Nikola Yoshev Monov</h2>
+					<h2>Nikola Yoshev Monov</h2>
 				</div>
 				<div class="row"><em>
 				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
@@ -46,7 +46,7 @@
 			</div>
 			<div class="person">
 				<div class="row">
-					<h2 class="text-warning">Nikolay Stanislavov Stoykov</h2>
+					<h2>Nikolay Stanislavov Stoykov</h2>
 				</div>
 				<div class="row"><em>
 				Student at: <a href="https://www.uni-sofia.bg/"> <abbr title="Sofia University">Sofia University</abbr></a>
