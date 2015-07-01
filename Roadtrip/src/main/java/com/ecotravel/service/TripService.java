@@ -1,5 +1,7 @@
 package com.ecotravel.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -23,8 +25,15 @@ public class TripService {
 		return tripDAO.save(trip);
 	}
 	
-	public List<Trip> findMatchingTrips(Trip trip){
-		return tripDAO.findTripsByTownsAndDate(trip);
+	public List<Trip> findMatchingTrips(String from, String to, Date date) {
+		if (from.length() > 0 && to.length() > 0) {
+			return tripDAO.findTripsByTowns(from, to);
+		}
+//		else if (date != null) {
+//			return tripDAO.findTripsByDate(date);
+//		}
+		
+		return new ArrayList<Trip>();
 	}
 	
 	public Trip getTripById(Long id) {

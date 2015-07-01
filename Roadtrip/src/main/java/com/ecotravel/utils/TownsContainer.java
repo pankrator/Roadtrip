@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.servlet.jsp.JspWriter;
 
 public class TownsContainer {
-	private static String[] towns = {"Asenovgrad",
+	private static String[] towns = {"", "Asenovgrad",
 									"Blagoevgrad", "Burgas", 
 									"Dimitrovgrad", "Dobrich", "Dupnitsa",
 									"Gabrovo",

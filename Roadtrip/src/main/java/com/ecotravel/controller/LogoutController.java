@@ -25,10 +25,8 @@ public class LogoutController {
 	
 	@GET
 	public void logout(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException, URISyntaxException {
-		//RequestDispatcher rd = null;
 			this.authenticationService.logout();
-//			rd = request.getRequestDispatcher("/index.jsp");
-//			rd.forward(request, response);
+			
 			response.sendRedirect(request.getContextPath() + "/");
 	}
 }

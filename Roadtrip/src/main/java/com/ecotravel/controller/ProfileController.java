@@ -53,9 +53,7 @@ public class ProfileController {
 		if (context.getProfile().getPerson() instanceof Driver) {
 			Driver driver = (Driver) context.getProfile().getPerson();
 			List<Trip> trips = tripService.getTripByDriverId(driver);
-			request.setAttribute("tripsList", trips);			
-		} else {
-//			Passenger passenger = (Passenger) context.getProfile().getPerson();
+			request.setAttribute("tripsList", trips);
 		}
 		
 		rd.forward(request, response);

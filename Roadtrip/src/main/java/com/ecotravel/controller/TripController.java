@@ -100,25 +100,21 @@ public class TripController {
 	public void searchTrip(@Context HttpServletRequest request, @Context HttpServletResponse response,
 			 @QueryParam(value="fromCity") String fromCity,
 			 @QueryParam(value="toCity") String toCity,
-			 @QueryParam(value="date") String dateString) throws ServletException, IOException, ParseException {
+			 @QueryParam(value="date") String dateString) throws ServletException, IOException {
 		RequestDispatcher rd = null;
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = formatter.parse(dateString);
+		Date date = null;
+		try {
+			date = formatter.parse(dateString);
+		} catch (ParseException e) {
+			
+		}
 		
-		Trip trip = new Trip();
-//		trip.setDepartureTime(date);
-		trip.setTravelFrom(fromCity);
-		trip.setTravelTo(toCity);
+		List<Trip> trips = tripService.findMatchingTrips(fromCity, toCity, date);
 		
-		List<Trip> trips = tripService.findMatchingTrips(trip);
-//		if(trips != null && trips.size() > 0){
-			request.setAttribute("matchingTrips", trips);
-			rd = request.getRequestDispatcher("/matchingTrips.jsp");
-//		//}
-//		else{			
-//			rd.forward(request, response);
-//		}
+		request.setAttribute("matchingTrips", trips);
+		rd = request.getRequestDispatcher("/matchingTrips.jsp");
 			
 		rd.forward(request, response);
 	}

@@ -40,7 +40,7 @@
 				<div class="form-group">
 					<label for="date" class="col-md-2 control-label">Date:</label> 
 					<div class="col-md-10">
-						<input id="date" type="date" name="date" required="required" class="form-control">
+						<input id="date" type="date" name="date" class="form-control">
 					</div>
 				</div>
 				<div class="form-group">

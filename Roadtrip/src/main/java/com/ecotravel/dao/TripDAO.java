@@ -1,5 +1,9 @@
 package com.ecotravel.dao;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Singleton;
@@ -27,16 +31,29 @@ public class TripDAO extends BaseDAO<Trip> {
 		return query.getResultList();
 	}
 	
-	public List<Trip> findTripsByTownsAndDate(Trip trip) {
+	public List<Trip> findTripsByTowns(String from, String to) {
 		String q = "SELECT trip FROM Trip trip WHERE "
 				+ "trip.travelFrom = :from"
 				+ " AND trip.travelTo = :to";
 		
 		TypedQuery<Trip> query = em.createQuery(q, Trip.class);
-		query.setParameter("from", trip.getTravelFrom());
-		query.setParameter("to", trip.getTravelTo());
+		query.setParameter("from", from);
+		query.setParameter("to", to);
+		
+		return query.getResultList();
+	}
+	
+	public List<Trip> findTripsByDate(Date date) {
+		String q = "SELECT trip FROM Trip trip WHERE "
+				+ "trip.departureTime BETWEEN :date AND :date2";
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+		TypedQuery<Trip> query = em.createQuery(q, Trip.class);
+		query.setParameter("date", formatter.format(date));
+	
+		LocalDate tomorrow = LocalDate.from(date.toInstant()).plusDays(1);
+		query.setParameter("date2", formatter.format(tomorrow));
 		
 		return query.getResultList();
 	}	
-	
 }

@@ -30,14 +30,6 @@ public class LoginController {
 	
 	@Inject
 	private UserContext context;
-//	@GET
-//	@Produces("application/json")
-//	public void index(@Context HttpServletRequest request, @Context HttpServletResponse response) throws ServletException, IOException {
-//		RequestDispatcher rd = null;
-//		rd = request.getRequestDispatcher("/login.jsp");
-//		
-//		rd.forward(request, response);
-//	}
 	
 	@POST
 	@Consumes("application/x-www-form-urlencoded")
