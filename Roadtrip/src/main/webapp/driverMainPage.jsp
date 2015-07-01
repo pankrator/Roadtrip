@@ -7,15 +7,20 @@
 </head>
 <body>
 	<%@ include file="header.jsp" %>
-	<div class="container main text-center">
-		<div>
-			<img class="driverImg" src = "${pageContext.request.contextPath}/images/driverImg.gif" >
-			<img class="driverImg" src = "${pageContext.request.contextPath}/images//passengerImg.jpg">
+	<div class="container main">
+		<div class="heading">
+			<h1>Select a role</h1>
 		</div>
-		
-		<div>
-			<a href="trip"><img src = "${pageContext.request.contextPath}/images/driverLogo.png" class="arrows"></a>
-			<a href="trip/tripSearch"><img src = "${pageContext.request.contextPath}/images/passengerLogo.png" class="arrows"></a>
+		<div class="text-center">
+			<div>
+				<img class="driverImg" src = "${pageContext.request.contextPath}/images/driverImg.gif" >
+				<img class="driverImg" src = "${pageContext.request.contextPath}/images//passengerImg.jpg">
+			</div>
+			
+			<div>
+				<a href="trip"><img src = "${pageContext.request.contextPath}/images/driver.png" class="arrows"></a>
+				<a href="trip/tripSearch"><img src = "${pageContext.request.contextPath}/images/passenger.png" class="arrows"></a>
+			</div>
 		</div>
 	</div>
 	<%@ include file="footer.jsp" %>
